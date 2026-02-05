@@ -1,16 +1,16 @@
 ---
 type Props = {
-  class?: string,
-  hover?: boolean
-}
+  class?: string;
+  hover?: boolean;
+};
 
-const { class: classList, hover: optionHover} = Astro.props
+const { class: classList, hover = false } = Astro.props;
 
-const hov = optionHover ? "hover:ring hover:ring-Eco-70 hover:border-1" : ""
+const hov = hover ? "hover:ring hover:ring-Eco-70 hover:border-1" : "";
 ---
 
-
-<main class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov}`}>
+<div
+  class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov}`}
+>
   <slot />
-</main>
-
+</div>

@@ -1,8 +1,21 @@
-import { onMount } from "solid-js";
+import { onMount, onCleanup } from "solid-js";
 import * as d3 from "d3";
 import worldData from "@/lib/world.json";
 
-const GlobeComponent = ({scale = 250}) => {
+// Define a basic GeoJSON Feature interface for better type safety
+interface GeoJSONFeature {
+  type: "Feature";
+  properties: {
+    name: string;
+    // Add other properties if needed
+  };
+  geometry: {
+    type: string;
+    coordinates: any; // More specific type could be defined if necessary
+  };
+}
+
+const GlobeComponent = ({ scale = 250 }) => {
   let mapContainer: HTMLDivElement | undefined;
 
   const visitedCountries = [
@@ -59,7 +72,7 @@ const GlobeComponent = ({scale = 250}) => {
       .data(worldData.features)
       .enter()
       .append("path")
-      .attr("d", (d: any) => pathGenerator(d as any))
+      .attr("d", (d: GeoJSONFeature) => pathGenerator(d))
       .attr("fill", (d: { properties: { name: string } }) =>
         visitedCountries.includes(d.properties.name) ? "#7B50A1" : "white"
       )
@@ -71,8 +84,12 @@ const GlobeComponent = ({scale = 250}) => {
       const rotate = projection.rotate();
       const k = sensitivity / projection.scale();
       projection.rotate([rotate[0] - 1 * k, rotate[1]]);
-      svg.selectAll("path").attr("d", (d: any) => pathGenerator(d as any));
+      svg.selectAll("path").attr("d", (d: GeoJSONFeature) => pathGenerator(d));
     }, 200);
+
+    onCleanup(() => {
+      svg.remove(); // Remove the SVG element when the component unmounts
+    });
   });
 
   return (

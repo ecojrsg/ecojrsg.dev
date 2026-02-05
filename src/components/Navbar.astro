@@ -2,6 +2,7 @@
 import Logo from "@/components/Logo.astro"
 import Link from "@/components/Link.astro"
 import LanguageSelector from "@/components/LanguageSelector.astro"
+import { navLinks } from "@/lib/navLinks";
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -15,8 +16,8 @@ type Props = {
 const {class: className} = Astro.props
 ---
 
-<main class=`${className} flex justify-center z-0`>
-    <div id="patron" class="p-4 hidden lg:block w-4/5">
+<nav class=`${className} flex justify-center z-0`>
+    <div class="navbar-bg p-4 hidden lg:block w-4/5">
         <div class="flex justify-between items-center">
             <div class="px-2">
                 <Link href="/">
@@ -24,41 +25,26 @@ const {class: className} = Astro.props
                 </Link>
             </div>
             <div class=" flex justify-end items-center">
-                <Link href="#Inicio" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.home")}</span>
-                </Link>
-                <Link href="#About" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.about")}</span>
-                </Link>
-                <Link href="/" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.team")}</span>
-                </Link>
-                <Link href="#Technology" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.skills")}</span>
-                </Link>
-                <Link href="/" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.contac")}</span>
-                </Link>
-                <p class="px-4">
-                    |
-                </p>
-                <Link href="/blog" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.blog")}</span>
-                </Link>
-                <Link href="/" class="px-2">
-                    <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t("nav.repo")}</span>
-                </Link>
-                <p class="px-4">
-                    |
-                </p>
+                {navLinks.map((link, index) => (
+                    <>
+                        <Link href={link.href} class="px-2">
+                            <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t(link.i18nKey)}</span>
+                        </Link>
+                        { (index === 4 || index === 6) && (
+                            <span aria-hidden="true" class="px-4 text-gray-300">
+                                |
+                            </span>
+                        )}
+                    </>
+                ))}
                 <LanguageSelector/>
             </div>
         </div>
     </div>
-</main>
+</nav>
 
 <style>
-    #patron {
+    .navbar-bg {
         background-color: transparent;
         background-image: radial-gradient(transparent 1px, rgba(15, 17, 21, 1) 1px);
         background-size: 4px 4px;

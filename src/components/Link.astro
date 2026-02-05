@@ -1,15 +1,16 @@
 ---
-type Props = {
-  class?: string
-  href: string
-  blank?: boolean
+interface Props {
+  href: string;
+  blank?: boolean;
+  class?: string;
 }
 
-const {href, class: className, blank} = Astro.props
+const { href, blank, class: className, ...rest } = Astro.props;
 
-const target = blank ? '_blank' : ""
+const target = blank ? '_blank' : undefined;
+const rel = blank ? 'noopener noreferrer' : undefined;
 ---
 
-<a href={href} class={className} target={target}>
+<a href={href} class={className} target={target} rel={rel} {...rest}>
     <slot/>
 </a>

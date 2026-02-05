@@ -1,32 +1,47 @@
 ---
-import Glass from "@/components/Glass.astro"
-import Logo from "@/components/Logo.astro"
-import Button from "@/components/Button.astro"
-import Keyboard from "@/components/icons/Keyboard.astro"
-import AI from "@/components/icons/AI.astro"
-import CPU from "@/components/icons/CPU.astro"
+import Glass from "@/components/Glass.astro";
+import Logo from "@/components/Logo.astro";
+import Button from "@/components/Button.astro";
+import Keyboard from "@/components/icons/Keyboard.astro";
+import AI from "@/components/icons/AI.astro";
+import CPU from "@/components/icons/CPU.astro";
 ---
 
 <main>
-    <div class="hidden grid-cols-5 gap-10 items-center lg:grid">
-        <div class="flex flex-col gap-2 col-span-3 max-h-96  inAnimateL">
+    <div class="hidden grid-cols-5 gap-8 items-center lg:grid">
+        <div class="flex flex-col gap-4 col-span-3 inAnimateL">
             <Glass class="p-4 font-satoshi flex flex-col gap-4">
-                <h1 class="text-xl"><span class="text-lg text-Eco-100">&lt;span&gt;</span><span id="type"></span><span class="text-lg text-Eco-100">&lt;/span&gt;</span></h1>
+                <h1 class="text-xl">
+                    <span class="text-lg text-Eco-100">&lt;span&gt;</span><span
+                        id="type"></span><span class="text-lg text-Eco-100"
+                        >&lt;/span&gt;</span
+                    >
+                </h1>
                 <p class="text-5xl">
-                    Ingeniero de <span class="text-Eco-100">&#123;Software&#125;</span> con experiencia en el desarrollo Web
+                    Ingeniero de <span class="text-Eco-100"
+                        >&#123;Software&#125;</span
+                    > con experiencia en el desarrollo Web
                 </p>
                 <p class="text-base">
-                    <span class="text-Eco-100 text-lg">&lt;p&gt;</span>Ademas de contar con experiencia en areas de la informatica como <span class="text-Eco-100">IA</span>, <span class="text-Eco-100">Hardware</span>, <span class="text-Eco-100">Edicion</span> y como secreto <span class="text-Eco-100">Teclados</span>, me gustan mucho los teclados<span class="text-Eco-100 text-lg">&lt;/p&gt;</span>
+                    <span class="text-Eco-100 text-lg">&lt;p&gt;</span>Ademas de
+                    contar con experiencia en areas de la informatica como <span
+                        class="text-Eco-100">IA</span
+                    >, <span class="text-Eco-100">Hardware</span>, <span
+                        class="text-Eco-100">Edicion</span
+                    > y como secreto <span class="text-Eco-100">Teclados</span>,
+                    me gustan mucho los teclados<span
+                        class="text-Eco-100 text-lg">&lt;/p&gt;</span
+                    >
                 </p>
-                <div class="flex justify-around px-24">
+                <div class="flex justify-around px-12">
                     <Button>
-                        <AI class="w-16 h-16"/>
+                        <AI class="w-16 h-16" />
                     </Button>
                     <Button>
-                        <CPU class="w-16 h-16"/>
+                        <CPU class="w-16 h-16" />
                     </Button>
                     <Button>
-                        <Keyboard class="w-16 h-16"/>
+                        <Keyboard class="w-16 h-16" />
                     </Button>
                 </div>
             </Glass>
@@ -37,27 +52,42 @@ import CPU from "@/components/icons/CPU.astro"
             </div>
         </div>
         <div class="col-span-2 flex justify-center inAnimateR opacity-0">
-            <Logo class="h-96"/>
+            <Logo class="w-full h-auto max-w-sm" />
         </div>
     </div>
-    <div class="flex flex-col gap-2 lg:hidden inAnimateL opacity-0">
+    <div class="flex flex-col gap-4 lg:hidden inAnimateL opacity-0">
         <Glass class="p-4 font-satoshi flex flex-col gap-4">
-            <h1 class="text-xl"><span class="text-lg text-Eco-100">&lt;span&gt;</span><span id="typeR"></span><span class="text-lg text-Eco-100">&lt;/span&gt;</span></h1>
-            <p class="text-5xl">
-                Ingeniero de <span class="text-Eco-100">&#123;Software&#125;</span> con experiencia en el desarrollo Web
+            <h1 class="text-xl">
+                <span class="text-lg text-Eco-100">&lt;span&gt;</span><span
+                    id="typeR"></span><span class="text-lg text-Eco-100"
+                    >&lt;/span&gt;</span
+                >
+            </h1>
+            <p class="text-3xl sm:text-4xl">
+                Ingeniero de <span class="text-Eco-100"
+                    >&#123;Software&#125;</span
+                > con experiencia en el desarrollo Web
             </p>
-            <p class="text-xl">
-                <span class="text-Eco-100">&lt;p&gt;</span>Ademas de contar con experiencia en areas de la informatica como <span class="text-Eco-100">IA</span>, <span class="text-Eco-100">Hardware</span>, <span class="text-Eco-100">Edicion</span> y como secreto <span class="text-Eco-100">Teclados</span>, me gustan mucho los teclados<span class="text-Eco-100">&lt;/p&gt;</span>
+            <p class="text-base">
+                <span class="text-Eco-100">&lt;p&gt;</span>Ademas de contar con
+                experiencia en areas de la informatica como <span
+                    class="text-Eco-100">IA</span
+                >, <span class="text-Eco-100">Hardware</span>, <span
+                    class="text-Eco-100">Edicion</span
+                > y como secreto <span class="text-Eco-100">Teclados</span>, me
+                gustan mucho los teclados<span class="text-Eco-100"
+                    >&lt;/p&gt;</span
+                >
             </p>
             <div class="flex justify-around">
                 <Button>
-                    <AI class="w-10 h-6"/>
+                    <AI class="w-10 h-10" />
                 </Button>
                 <Button>
-                    <CPU class="w-10 h-6"/>
+                    <CPU class="w-10 h-10" />
                 </Button>
                 <Button>
-                    <Keyboard class="w-10 h-6"/>
+                    <Keyboard class="w-10 h-10" />
                 </Button>
             </div>
         </Glass>
@@ -71,33 +101,33 @@ import CPU from "@/components/icons/CPU.astro"
 
 <script>
     import { inView } from "motion";
-    import TypeIt from "typeit"
+    import TypeIt from "typeit";
 
-    inView("#type", ({target}) => {
+    inView("#type", ({ target }) => {
         //@ts-ignore
         new TypeIt(target, {
-            startDelay:1000
+            startDelay: 1000,
         })
-        .type("Soy eco", {delay: 300})
-        .move(-2, {delay: 100})
-        .delete(1)
-        .type("E")
-        .move(null, {to: "END", delay: 1000})
-        .type("👋")
-        .go()
-    })
+            .type("Soy eco", { delay: 300 })
+            .move(-2, { delay: 100 })
+            .delete(1)
+            .type("E")
+            .move(null, { to: "END", delay: 1000 })
+            .type("👋")
+            .go();
+    });
 
-    inView("#typeR", ({target}) => {
+    inView("#typeR", ({ target }) => {
         //@ts-ignore
         new TypeIt(target, {
-            startDelay:1000
+            startDelay: 1000,
         })
-        .type("Soy eco", {delay: 300})
-        .move(-2, {delay: 100})
-        .delete(1)
-        .type("E")
-        .move(null, {to: "END", delay: 1000})
-        .type("👋")
-        .go()
-    })
+            .type("Soy eco", { delay: 300 })
+            .move(-2, { delay: 100 })
+            .delete(1)
+            .type("E")
+            .move(null, { to: "END", delay: 1000 })
+            .type("👋")
+            .go();
+    });
 </script>

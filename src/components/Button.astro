@@ -1,22 +1,19 @@
 ---
 import Glass from "@/components/Glass.astro"
 
-type Props = {
-    hover?: boolean
+interface Props {
+    hover?: boolean;
+    class?: string; // Allow passing additional classes to the button
 }
 
-const { hover = true } = Astro.props
-let hovertype = ''
-
-if(hover) {
-    hovertype = 'hover:text-Eco-20'
-} else {
-    hovertype = ''
-}
+const { hover = true, class: additionalClasses } = Astro.props;
 ---
 
-<button>
-    <Glass class={`inline-block p-3 shadow-social-btn px-4 py-2 active:shadow-clear-shadow cursor-pointer active:translate-x-[3px] active:translate-y-[3px] ${hovertype}`}>
+<button class:list={[additionalClasses]} type="button">
+    <Glass class:list={[
+        'inline-block p-3 shadow-social-btn px-4 py-2 active:shadow-clear-shadow cursor-pointer active:translate-x-[3px] active:translate-y-[3px]',
+        hover && 'hover:text-Eco-20'
+    ]}>
         <slot/>
     </Glass>
 </button>

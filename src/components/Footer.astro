@@ -6,11 +6,21 @@ import Instagram from "@/components/icons/Instagram.astro";
 import Github from "@/components/icons/Github.astro";
 
 import { LINKS } from "@/lib/constants";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const currentYear = new Date().getFullYear();
+
+const legalLinks = [
+    { href: "/terminos-y-condiciones", i18nKey: "footer.terms" },
+    { href: "/politicas-de-uso", i18nKey: "footer.privacy" },
+];
 ---
 
-<main>
-    <footer class="hidden lg:block mx-52">
-        <div class="flex justify-between h-16">
+    <footer class="mx-auto px-4 lg:px-52">
+        <div class="flex justify-between h-16 items-center">
             <div class="flex items-center gap-2">
                 <Logo class="w-7 pb-1"/>
                 <p class="font-satoshi">Eco</p>
@@ -27,51 +37,24 @@ import { LINKS } from "@/lib/constants";
                 </Link>
             </div>
         </div>
-        <hr class="opacity-50">
-        <div class="flex justify-between h-16">
+        <hr class="opacity-50 my-2">
+        <div class="flex flex-col lg:flex-row justify-between h-16 items-center">
             <div class="flex items-center gap-2">
-                <p class="font-satoshi">&copy; 2024 Jonathan Ricardo Serna Galina.</p>
+                <p class="font-satoshi">&copy; {currentYear} Jonathan Ricardo Serna Galina.</p>
             </div>
-            <div class="flex items-center gap-2">
-                <Link href="/terminos-y-condiciones">
-                    <p>Terminos y condiciones</p>
-                </Link>
-                <p>|</p>
-                <Link href="/politicas-de-uso">
-                    <p>Políticas de uso</p>
-                </Link>
-            </div>
-        </div>
-    </footer>
-    <footer class="lg:hidden mx-10">
-        <div class="flex justify-between h-16">
-            <div class="flex items-center gap-2">
-                <Logo class="w-7 pb-1"/>
-                <p class="font-satoshi">Eco</p>
-            </div>
-            <div class="flex items-center gap-2">
-                <Link href={LINKS.discord}>
-                    <Discord class="text-gray-300 hover:text-white"/>
-                </Link>
-                <Link href={LINKS.instagram}>
-                    <Instagram class="text-gray-300 hover:text-white"/>
-                </Link>
-                <Link href={LINKS.github}>
-                    <Github class="text-gray-300 hover:text-white"/>
-                </Link>
-            </div>
-        </div>
-        <hr class="opacity-50">
-        <div class="flex justify-between h-16">
-            <div class="flex items-center gap-2">
-                <Link href="/terminos-y-condiciones">
-                    <p>Terminos y condiciones</p>
-                </Link>
-                <p>|</p>
-                <Link href="/politicas-de-uso">
-                    <p>Políticas de uso</p>
-                </Link>
+            <div class="flex items-center gap-2 mt-2 lg:mt-0">
+                {legalLinks.map((link, index) => (
+                    <>
+                        <Link href={link.href}>
+                            <p>{t(link.i18nKey)}</p>
+                        </Link>
+                        {index < legalLinks.length - 1 && (
+                            <span aria-hidden="true" class="px-2 text-gray-300">
+                                |
+                            </span>
+                        )}
+                    </>
+                ))}
             </div>
         </div>
     </footer>
-</main>
