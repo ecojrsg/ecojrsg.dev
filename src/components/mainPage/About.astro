@@ -1,14 +1,14 @@
 ---
-import Glass from "@/components/Glass.astro"
-import Logo from "@/components/Logo.astro"
-import Button from "@/components/Button.astro"
-import Keyboard from "@/components/icons/Keyboard.astro"
-import AI from "@/components/icons/AI.astro"
-import CPU from "@/components/icons/CPU.astro"
-import { getI18N } from "@/i18n/index"
+import Glass from "@/components/Glass.astro";
+import Logo from "@/components/Logo.astro";
+import Button from "@/components/Button.astro";
+import Keyboard from "@/components/icons/Keyboard.astro";
+import AI from "@/components/icons/AI.astro";
+import CPU from "@/components/icons/CPU.astro";
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <main>
@@ -44,7 +44,10 @@ const i18n = getI18N({ currentLocale })
             <span class="keyword">const</span>
             <span class="variable">greeting</span>
             <span class="operator">=</span>
-            <span class="string">"<span id="type"></span><span class="terminal-cursor"></span>"</span>
+            <span class="string"
+              >"<span id="type"></span><span class="terminal-cursor"
+              ></span>"</span
+            >
           </div>
 
           <!-- Line 3: Empty -->
@@ -55,14 +58,20 @@ const i18n = getI18N({ currentLocale })
           <!-- Line 4: Comment role -->
           <div class="code-line">
             <span class="line-number">4</span>
-            <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span>
+            <span class="comment-block"
+              >/* {i18n.About_Hero.comment_role} */</span
+            >
           </div>
 
           <!-- Line 5-6: Title (main content) -->
           <div class="code-line code-line-title">
             <span class="line-number">5</span>
             <h2 class="title-text">
-              {i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]}<span class="title-highlight">{`{${i18n.About_Hero.title_highlight}}`}</span>{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
+              {
+                i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]
+              }<span class="title-highlight"
+                >{`{${i18n.About_Hero.title_highlight}}`}</span
+              >{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
             </h2>
           </div>
 
@@ -91,7 +100,7 @@ const i18n = getI18N({ currentLocale })
           </div>
 
           <!-- Line 12: Icon buttons -->
-          <div class="code-line">
+          <!-- <div class="code-line">
             <span class="line-number">12</span>
             <div class="icon-buttons-grid">
               <div class="tooltip-wrapper">
@@ -113,13 +122,17 @@ const i18n = getI18N({ currentLocale })
                 <span class="tooltip">{i18n.About_Hero.interests_labels.keyboards}</span>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </Glass>
 
       <!-- CV Download Button -->
       <div class="cv-button-wrapper">
-        <a href="#cv" data-cv-placeholder="true" aria-label={i18n.About_Hero.cv_alt}>
+        <a
+          href="#cv"
+          data-cv-placeholder="true"
+          aria-label={i18n.About_Hero.cv_alt}
+        >
           <Button hover={false} class="cv-terminal-button">
             <span class="terminal-prompt">$</span>
             <span class="cv-text">{i18n.About_Hero.cv_button}</span>
@@ -162,7 +175,10 @@ const i18n = getI18N({ currentLocale })
           <span class="keyword">const</span>
           <span class="variable">greeting</span>
           <span class="operator">=</span>
-          <span class="string">"<span id="typeR"></span><span class="terminal-cursor"></span>"</span>
+          <span class="string"
+            >"<span id="typeR"></span><span class="terminal-cursor"
+            ></span>"</span
+          >
         </div>
 
         <!-- Line 3: Empty -->
@@ -173,14 +189,19 @@ const i18n = getI18N({ currentLocale })
         <!-- Line 4: Comment -->
         <div class="code-line">
           <span class="line-number">4</span>
-          <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span>
+          <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span
+          >
         </div>
 
         <!-- Line 5: Title -->
         <div class="code-line code-line-title">
           <span class="line-number">5</span>
           <h2 class="title-text">
-            {i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]}<span class="title-highlight">{`{${i18n.About_Hero.title_highlight}}`}</span>{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
+            {
+              i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]
+            }<span class="title-highlight"
+              >{`{${i18n.About_Hero.title_highlight}}`}</span
+            >{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
           </h2>
         </div>
 
@@ -222,13 +243,17 @@ const i18n = getI18N({ currentLocale })
               <Button variant="icon" class="terminal-icon-btn">
                 <CPU class="w-10 h-10" />
               </Button>
-              <span class="tooltip">{i18n.About_Hero.interests_labels.hardware}</span>
+              <span class="tooltip"
+                >{i18n.About_Hero.interests_labels.hardware}</span
+              >
             </div>
             <div class="tooltip-wrapper">
               <Button variant="icon" class="terminal-icon-btn">
                 <Keyboard class="w-10 h-10" />
               </Button>
-              <span class="tooltip">{i18n.About_Hero.interests_labels.keyboards}</span>
+              <span class="tooltip"
+                >{i18n.About_Hero.interests_labels.keyboards}</span
+              >
             </div>
           </div>
         </div>
@@ -237,7 +262,11 @@ const i18n = getI18N({ currentLocale })
 
     <!-- CV Button Mobile -->
     <div class="cv-button-wrapper">
-      <a href="#cv" data-cv-placeholder="true" aria-label={i18n.About_Hero.cv_alt}>
+      <a
+        href="#cv"
+        data-cv-placeholder="true"
+        aria-label={i18n.About_Hero.cv_alt}
+      >
         <Button hover={false} class="cv-terminal-button">
           <span class="terminal-prompt">$</span>
           <span class="cv-text">{i18n.About_Hero.cv_button}</span>
@@ -257,7 +286,11 @@ const i18n = getI18N({ currentLocale })
 
   /* Terminal Header | Cabecera del terminal */
   .terminal-header {
-    background: linear-gradient(to bottom, rgba(31, 15, 45, 0.7), rgba(31, 15, 45, 0.4));
+    background: linear-gradient(
+      to bottom,
+      rgba(31, 15, 45, 0.7),
+      rgba(31, 15, 45, 0.4)
+    );
     border-bottom: 1px solid rgba(148, 111, 179, 0.25);
     padding: 0.875rem 1.25rem;
     display: flex;
@@ -311,7 +344,8 @@ const i18n = getI18N({ currentLocale })
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.75rem;
     color: rgba(39, 201, 63, 0.8);
   }
@@ -325,7 +359,8 @@ const i18n = getI18N({ currentLocale })
   }
 
   @keyframes pulse-green {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
       box-shadow: 0 0 8px rgba(39, 201, 63, 0.6);
     }
@@ -343,7 +378,8 @@ const i18n = getI18N({ currentLocale })
   /* Terminal Body | Cuerpo del terminal */
   .terminal-body {
     padding: 1.5rem 0;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
   .code-line {
@@ -381,23 +417,23 @@ const i18n = getI18N({ currentLocale })
   }
 
   .keyword {
-    color: #AD8FC5;
+    color: #ad8fc5;
     font-weight: 600;
     margin-right: 0.5rem;
   }
 
   .variable {
-    color: #C6B0D6;
+    color: #c6b0d6;
     margin-right: 0.5rem;
   }
 
   .operator {
-    color: #A17FBC;
+    color: #a17fbc;
     margin: 0 0.5rem;
   }
 
   .string {
-    color: #DED2E8;
+    color: #ded2e8;
   }
 
   /* Title Section | Sección del título */
@@ -415,7 +451,7 @@ const i18n = getI18N({ currentLocale })
   }
 
   .title-highlight {
-    color: #946FB3;
+    color: #946fb3;
     font-family: ui-monospace, monospace;
     font-weight: 700;
   }
@@ -438,17 +474,19 @@ const i18n = getI18N({ currentLocale })
     display: inline-block;
     width: 0.5rem;
     height: 1.2em;
-    background: #946FB3;
+    background: #946fb3;
     margin-left: 0.125rem;
     animation: blink-cursor 1.2s step-end infinite;
     vertical-align: text-bottom;
   }
 
   @keyframes blink-cursor {
-    0%, 49% {
+    0%,
+    49% {
       opacity: 1;
     }
-    50%, 100% {
+    50%,
+    100% {
       opacity: 0;
     }
   }
@@ -488,7 +526,7 @@ const i18n = getI18N({ currentLocale })
       rgba(84, 33, 135, 0.15) 100%
     );
     border-color: rgba(148, 111, 179, 0.4);
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(148, 111, 179, 0.2),
       inset 0 1px 0 rgba(222, 210, 232, 0.1);
   }
@@ -515,7 +553,7 @@ const i18n = getI18N({ currentLocale })
     pointer-events: none;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(148, 111, 179, 0.3);
-    color: #DED2E8;
+    color: #ded2e8;
     z-index: 10;
   }
 
@@ -551,7 +589,8 @@ const i18n = getI18N({ currentLocale })
 
   .cv-terminal-button {
     width: 100%;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 1rem;
     font-weight: 600;
     display: flex;
@@ -588,12 +627,12 @@ const i18n = getI18N({ currentLocale })
   }
 
   .cv-text {
-    color: #DED2E8;
+    color: #ded2e8;
     letter-spacing: 0.02em;
   }
 
   .download-icon {
-    color: #946FB3;
+    color: #946fb3;
     font-size: 1.25rem;
     transition: transform 0.3s ease;
   }
@@ -603,7 +642,8 @@ const i18n = getI18N({ currentLocale })
   }
 
   @keyframes bounce-down {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
@@ -678,8 +718,8 @@ const i18n = getI18N({ currentLocale })
 </style>
 
 <script>
-  import { inView } from "motion"
-  import TypeIt from "typeit"
+  import { inView } from "motion";
+  import TypeIt from "typeit";
 
   // Desktop TypeIt effect | Efecto TypeIt de escritorio
   inView("#type", ({ target }) => {
@@ -695,8 +735,8 @@ const i18n = getI18N({ currentLocale })
       .type("E")
       .move(null, { to: "END", delay: 500 })
       .type("👋")
-      .go()
-  })
+      .go();
+  });
 
   // Mobile TypeIt effect | Efecto TypeIt móvil
   inView("#typeR", ({ target }) => {
@@ -712,6 +752,6 @@ const i18n = getI18N({ currentLocale })
       .type("E")
       .move(null, { to: "END", delay: 500 })
       .type("👋")
-      .go()
-  })
+      .go();
+  });
 </script>
