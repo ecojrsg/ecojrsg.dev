@@ -6,4 +6,4 @@ export const navLinks = [
     { href: "/", i18nKey: "nav.contac" }, // Placeholder for now, will be updated
     { href: "/blog", i18nKey: "nav.blog" },
     { href: "/", i18nKey: "nav.repo" }, // Placeholder for now, will be updated
-];
+] as const;

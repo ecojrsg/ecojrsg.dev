@@ -30,6 +30,8 @@ export const ui = {
     "nav.contac": "Contactame",
     "nav.blog": "Blog",
     "nav.repo": "Repositorio",
+    "footer.terms": "Términos y Condiciones",
+    "footer.privacy": "Política de Privacidad",
   },
   en: {
     "nav.home": "Home",
@@ -39,6 +41,8 @@ export const ui = {
     "nav.contac": "Contact me",
     "nav.blog": "Blog",
     "nav.repo": "Repository",
+    "footer.terms": "Terms & Conditions",
+    "footer.privacy": "Privacy Policy",
   },
 } as const;
 

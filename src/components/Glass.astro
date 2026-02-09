@@ -2,15 +2,43 @@
 type Props = {
   class?: string;
   hover?: boolean;
+  pixelEffect?: boolean;
+  pixelGap?: number;
+  pixelSpeed?: number;
+  pixelColors?: string[];
+  pixelVariant?: "default" | "icon";
 };
 
-const { class: classList, hover = false } = Astro.props;
+const {
+  class: classList,
+  hover = false,
+  pixelEffect = false,
+  pixelGap,
+  pixelSpeed,
+  pixelColors,
+  pixelVariant,
+} = Astro.props;
 
 const hov = hover ? "hover:ring hover:ring-Eco-70 hover:border-1" : "";
 ---
 
 <div
-  class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov}`}
+  class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov} ${pixelEffect ? "relative" : ""}`}
 >
+  {pixelEffect && (
+    <pixel-canvas
+      class="absolute inset-0 rounded-xl"
+      data-gap={pixelGap}
+      data-speed={pixelSpeed}
+      data-colors={pixelColors?.join(",")}
+      data-variant={pixelVariant}
+    />
+  )}
   <slot />
 </div>
+
+{pixelEffect && (
+  <script>
+    import "@/components/interactive/PixelCanvas";
+  </script>
+)}

@@ -2,17 +2,8 @@ import { onMount, onCleanup } from "solid-js";
 import * as d3 from "d3";
 import worldData from "@/lib/world.json";
 
-// Define a basic GeoJSON Feature interface for better type safety
-interface GeoJSONFeature {
-  type: "Feature";
-  properties: {
-    name: string;
-    // Add other properties if needed
-  };
-  geometry: {
-    type: string;
-    coordinates: any; // More specific type could be defined if necessary
-  };
+interface GeoFeatureProperties {
+  name: string;
 }
 
 const GlobeComponent = ({ scale = 250 }) => {
@@ -72,8 +63,8 @@ const GlobeComponent = ({ scale = 250 }) => {
       .data(worldData.features)
       .enter()
       .append("path")
-      .attr("d", (d: GeoJSONFeature) => pathGenerator(d))
-      .attr("fill", (d: { properties: { name: string } }) =>
+      .attr("d", (d: any) => pathGenerator(d))
+      .attr("fill", (d: { properties: GeoFeatureProperties }) =>
         visitedCountries.includes(d.properties.name) ? "#7B50A1" : "white"
       )
       .style("stroke", "black")
@@ -84,7 +75,7 @@ const GlobeComponent = ({ scale = 250 }) => {
       const rotate = projection.rotate();
       const k = sensitivity / projection.scale();
       projection.rotate([rotate[0] - 1 * k, rotate[1]]);
-      svg.selectAll("path").attr("d", (d: GeoJSONFeature) => pathGenerator(d));
+      svg.selectAll("path").attr("d", (d: any) => pathGenerator(d));
     }, 200);
 
     onCleanup(() => {
