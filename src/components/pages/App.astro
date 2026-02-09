@@ -101,20 +101,22 @@ import Team from "@/components/mainPage/Team.astro"
 </style>
 
 <script is:inline data-astro-rerun>
-  var navbar = document.getElementById("navbar")
-  var offsetPercentage = 50;
-  var windowHeight = window.innerHeight;
-  var offset = (windowHeight * offsetPercentage) / 80;
+  {
+    const navbar = document.getElementById("navbar");
+    const offsetPercentage = 50;
+    const windowHeight = window.innerHeight;
+    const offset = (windowHeight * offsetPercentage) / 80;
 
-  window.addEventListener('scroll', function() {
-    var currentScroll = window.scrollY || document.documentElement.scrollTop;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY || document.documentElement.scrollTop;
 
-    if(currentScroll >= offset) {
-      navbar.style.transform = 'translateY(100px)'
-    }
+      if (currentScroll >= offset) {
+        navbar.style.transform = 'translateY(100px)';
+      }
 
-    if(currentScroll <= offset + 260) {
-      navbar.style.transform = 'translateY(-100px)'
-    }
-  }, false);
+      if (currentScroll <= offset + 260) {
+        navbar.style.transform = 'translateY(-100px)';
+      }
+    }, false);
+  }
 </script>
