@@ -69,10 +69,10 @@ const GlobeComponent = ({ scale = 250 }) => {
       .append("g")
       .attr("class", "countries")
       .selectAll("path")
-      .data(worldData.features)
+      .data(worldData.features as unknown as GeoJSONFeature[])
       .enter()
       .append("path")
-      .attr("d", (d: GeoJSONFeature) => pathGenerator(d))
+      .attr("d", (d: GeoJSONFeature) => pathGenerator(d as any))
       .attr("fill", (d: { properties: { name: string } }) =>
         visitedCountries.includes(d.properties.name) ? "#7B50A1" : "white"
       )
@@ -80,14 +80,17 @@ const GlobeComponent = ({ scale = 250 }) => {
       .style("stroke-width", 0.3)
       .style("opacity", 0.8);
 
-    d3.timer(() => {
+    const timer = d3.timer(() => {
       const rotate = projection.rotate();
       const k = sensitivity / projection.scale();
       projection.rotate([rotate[0] - 1 * k, rotate[1]]);
-      svg.selectAll("path").attr("d", (d: GeoJSONFeature) => pathGenerator(d));
+      svg
+        .selectAll("path")
+        .attr("d", (d: GeoJSONFeature) => pathGenerator(d as any));
     }, 200);
 
     onCleanup(() => {
+      timer.stop();
       svg.remove(); // Remove the SVG element when the component unmounts
     });
   });
