@@ -10,7 +10,7 @@ const { hover = true, class: additionalClasses } = Astro.props;
 ---
 
 <button class:list={[additionalClasses]} type="button">
-    <Glass class:list={[
+    <Glass effect={true} class:list={[
         'inline-block p-3 shadow-social-btn px-4 py-2 active:shadow-clear-shadow cursor-pointer active:translate-x-[3px] active:translate-y-[3px]',
         hover && 'hover:text-Eco-20'
     ]}>

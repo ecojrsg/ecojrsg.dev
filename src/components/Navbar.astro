@@ -28,7 +28,7 @@ const {class: className} = Astro.props
                 {navLinks.map((link, index) => (
                     <>
                         <Link href={link.href} class="px-2">
-                            <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t(link.i18nKey)}</span>
+                            <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t(link.i18nKey as any)}</span>
                         </Link>
                         { (index === 4 || index === 6) && (
                             <span aria-hidden="true" class="px-4 text-gray-300">

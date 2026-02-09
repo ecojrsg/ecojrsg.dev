@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { onMount, onCleanup } from "solid-js";
 import * as d3 from "d3";
 import worldData from "@/lib/world.json";

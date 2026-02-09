@@ -2,15 +2,17 @@
 type Props = {
   class?: string;
   hover?: boolean;
+  effect?: boolean;
 };
 
-const { class: classList, hover = false } = Astro.props;
+const { class: classList, hover = false, effect = false } = Astro.props;
 
 const hov = hover ? "hover:ring hover:ring-Eco-70 hover:border-1" : "";
+const glassStyles = effect
+  ? "bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50"
+  : "";
 ---
 
-<div
-  class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov}`}
->
+<div class={`${glassStyles} ${classList} ${hov}`}>
   <slot />
 </div>

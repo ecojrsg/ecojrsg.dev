@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import solidJs from "@astrojs/solid-js";
+import react from "@astrojs/react";
 
 const site = "https://ecojrsg.dev";
 
@@ -9,7 +10,17 @@ const site = "https://ecojrsg.dev";
 export default defineConfig({
   site: site,
 
-  integrations: [tailwind(), solidJs(), mdx()],
+  integrations: [
+    tailwind(),
+    solidJs({
+      include: ["src/components/**/*.tsx"],
+      exclude: ["src/components/ui/**/*.tsx", "src/components/PixelCanvasDemo.tsx"]
+    }),
+    mdx(),
+    react({
+      include: ["src/components/ui/**/*.tsx", "src/components/PixelCanvasDemo.tsx"]
+    })
+  ],
 
   i18n: {
     defaultLocale: "es",

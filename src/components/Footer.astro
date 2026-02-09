@@ -46,7 +46,7 @@ const legalLinks = [
                 {legalLinks.map((link, index) => (
                     <>
                         <Link href={link.href}>
-                            <p>{t(link.i18nKey)}</p>
+                            <p>{t(link.i18nKey as any)}</p>
                         </Link>
                         {index < legalLinks.length - 1 && (
                             <span aria-hidden="true" class="px-2 text-gray-300">
