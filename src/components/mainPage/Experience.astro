@@ -3,43 +3,15 @@ import GlobeComponent from "@/components/interactive/Globe";
 import Glass from "@/components/Glass.astro";
 ---
 <script>
-    import {animate, inView} from "motion"
-    const paises = document.querySelector(".paises")
-    const universidades = document.querySelector(".universidades")
-    const clientes = document.querySelector(".clientes")
+    import { animateCountUp } from "@/lib/animate";
 
-    // @ts-ignore
-    inView(paises, ({target}) => {
-        setTimeout(() => {
-            animate(
-                // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 9),
-                { duration: 1, easing: "ease-out" }
-            )
-        }, 2000)
-    })
+    const paises = document.querySelector(".paises");
+    const universidades = document.querySelector(".universidades");
+    const clientes = document.querySelector(".clientes");
 
-    // @ts-ignore
-    inView(universidades, ({target}) => {
-        setTimeout(() => {
-            animate(
-                // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 5),
-                { duration: 1, easing: "ease-out" }
-            )
-        }, 2500)
-    })
-
-    // @ts-ignore
-    inView(clientes, ({target}) => {
-        setTimeout(() => {
-            animate(
-                // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 113),
-                { duration: 2, easing: "ease-out" }
-            )
-        }, 3000)
-    })
+    animateCountUp(paises, 9, 2000);
+    animateCountUp(universidades, 5, 2500);
+    animateCountUp(clientes, 113, 3000, 2);
 </script>
 
 <main>
