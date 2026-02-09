@@ -13,7 +13,7 @@ import Glass from "@/components/Glass.astro";
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 9),
+                (progress) => target.textContent = Math.round(progress * 9),
                 { duration: 1, easing: "ease-out" }
             )
         }, 2000)
@@ -24,7 +24,7 @@ import Glass from "@/components/Glass.astro";
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 5),
+                (progress) => target.textContent = Math.round(progress * 5),
                 { duration: 1, easing: "ease-out" }
             )
         }, 2500)
@@ -35,7 +35,7 @@ import Glass from "@/components/Glass.astro";
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 113),
+                (progress) => target.textContent = Math.round(progress * 113),
                 { duration: 2, easing: "ease-out" }
             )
         }, 3000)
