@@ -1,133 +1,717 @@
 ---
-import Glass from "@/components/Glass.astro";
-import Logo from "@/components/Logo.astro";
-import Button from "@/components/Button.astro";
-import Keyboard from "@/components/icons/Keyboard.astro";
-import AI from "@/components/icons/AI.astro";
-import CPU from "@/components/icons/CPU.astro";
+import Glass from "@/components/Glass.astro"
+import Logo from "@/components/Logo.astro"
+import Button from "@/components/Button.astro"
+import Keyboard from "@/components/icons/Keyboard.astro"
+import AI from "@/components/icons/AI.astro"
+import CPU from "@/components/icons/CPU.astro"
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <main>
-    <div class="hidden grid-cols-5 gap-8 items-center lg:grid">
-        <div class="flex flex-col gap-4 col-span-3 inAnimateL">
-            <Glass class="p-4 font-satoshi flex flex-col gap-4">
-                <h1 class="text-xl">
-                    <span class="text-lg text-Eco-100">&lt;span&gt;</span><span
-                        id="type"></span><span class="text-lg text-Eco-100"
-                        >&lt;/span&gt;</span
-                    >
-                </h1>
-                <p class="text-5xl">
-                    Ingeniero de <span class="text-Eco-100"
-                        >&#123;Software&#125;</span
-                    > con experiencia en el desarrollo Web
-                </p>
-                <p class="text-base">
-                    <span class="text-Eco-100 text-lg">&lt;p&gt;</span>Ademas de
-                    contar con experiencia en areas de la informatica como <span
-                        class="text-Eco-100">IA</span
-                    >, <span class="text-Eco-100">Hardware</span>, <span
-                        class="text-Eco-100">Edicion</span
-                    > y como secreto <span class="text-Eco-100">Teclados</span>,
-                    me gustan mucho los teclados<span
-                        class="text-Eco-100 text-lg">&lt;/p&gt;</span
-                    >
-                </p>
-                <div class="flex justify-around px-12">
-                    <Button>
-                        <AI class="w-16 h-16" />
-                    </Button>
-                    <Button>
-                        <CPU class="w-16 h-16" />
-                    </Button>
-                    <Button>
-                        <Keyboard class="w-16 h-16" />
-                    </Button>
-                </div>
-            </Glass>
-            <div>
-                <Button hover={false}>
-                    <span>Descarga mi cv</span>
-                </Button>
-            </div>
+  <!-- Desktop Layout | Diseño de escritorio -->
+  <div class="hidden grid-cols-5 gap-8 items-center lg:grid">
+    <div class="flex flex-col gap-4 col-span-3 inAnimateL">
+      <Glass class="terminal-container">
+        <!-- Terminal Header | Cabecera de terminal -->
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-title">about.tsx</div>
+          <div class="terminal-status">
+            <span class="status-indicator"></span>
+            <span class="status-text">ready</span>
+          </div>
         </div>
-        <div class="col-span-2 flex justify-center inAnimateR opacity-0">
-            <Logo class="w-full h-auto max-w-sm" />
-        </div>
-    </div>
-    <div class="flex flex-col gap-4 lg:hidden inAnimateL opacity-0">
-        <Glass class="p-4 font-satoshi flex flex-col gap-4">
-            <h1 class="text-xl">
-                <span class="text-lg text-Eco-100">&lt;span&gt;</span><span
-                    id="typeR"></span><span class="text-lg text-Eco-100"
-                    >&lt;/span&gt;</span
-                >
-            </h1>
-            <p class="text-3xl sm:text-4xl">
-                Ingeniero de <span class="text-Eco-100"
-                    >&#123;Software&#125;</span
-                > con experiencia en el desarrollo Web
+
+        <!-- Terminal Body | Cuerpo del terminal -->
+        <div class="terminal-body">
+          <!-- Line 1: Comment greeting -->
+          <div class="code-line">
+            <span class="line-number">1</span>
+            <span class="comment">// {i18n.About_Hero.comment_greeting}</span>
+          </div>
+
+          <!-- Line 2: Greeting with TypeIt -->
+          <div class="code-line">
+            <span class="line-number">2</span>
+            <span class="keyword">const</span>
+            <span class="variable">greeting</span>
+            <span class="operator">=</span>
+            <span class="string">"<span id="type"></span><span class="terminal-cursor"></span>"</span>
+          </div>
+
+          <!-- Line 3: Empty -->
+          <div class="code-line code-line-empty">
+            <span class="line-number">3</span>
+          </div>
+
+          <!-- Line 4: Comment role -->
+          <div class="code-line">
+            <span class="line-number">4</span>
+            <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span>
+          </div>
+
+          <!-- Line 5-6: Title (main content) -->
+          <div class="code-line code-line-title">
+            <span class="line-number">5</span>
+            <h2 class="title-text">
+              {i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]}<span class="title-highlight">{`{${i18n.About_Hero.title_highlight}}`}</span>{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
+            </h2>
+          </div>
+
+          <!-- Line 7: Empty -->
+          <div class="code-line code-line-empty">
+            <span class="line-number">7</span>
+          </div>
+
+          <!-- Line 8: Comment interests -->
+          <div class="code-line">
+            <span class="line-number">8</span>
+            <span class="comment">// {i18n.About_Hero.comment_interests}</span>
+          </div>
+
+          <!-- Line 9-10: Description -->
+          <div class="code-line code-line-description">
+            <span class="line-number">9</span>
+            <p class="description-text">
+              {i18n.About_Hero.description}
             </p>
-            <p class="text-base">
-                <span class="text-Eco-100">&lt;p&gt;</span>Ademas de contar con
-                experiencia en areas de la informatica como <span
-                    class="text-Eco-100">IA</span
-                >, <span class="text-Eco-100">Hardware</span>, <span
-                    class="text-Eco-100">Edicion</span
-                > y como secreto <span class="text-Eco-100">Teclados</span>, me
-                gustan mucho los teclados<span class="text-Eco-100"
-                    >&lt;/p&gt;</span
-                >
-            </p>
-            <div class="flex justify-around">
-                <Button>
-                    <AI class="w-10 h-10" />
+          </div>
+
+          <!-- Line 11: Empty -->
+          <div class="code-line code-line-empty">
+            <span class="line-number">11</span>
+          </div>
+
+          <!-- Line 12: Icon buttons -->
+          <div class="code-line">
+            <span class="line-number">12</span>
+            <div class="icon-buttons-grid">
+              <div class="tooltip-wrapper">
+                <Button variant="icon" class="terminal-icon-btn">
+                  <AI class="w-14 h-14" />
                 </Button>
-                <Button>
-                    <CPU class="w-10 h-10" />
+                <span class="tooltip">{i18n.About_Hero.interests_labels.ai}</span>
+              </div>
+              <div class="tooltip-wrapper">
+                <Button variant="icon" class="terminal-icon-btn">
+                  <CPU class="w-14 h-14" />
                 </Button>
-                <Button>
-                    <Keyboard class="w-10 h-10" />
+                <span class="tooltip">{i18n.About_Hero.interests_labels.hardware}</span>
+              </div>
+              <div class="tooltip-wrapper">
+                <Button variant="icon" class="terminal-icon-btn">
+                  <Keyboard class="w-14 h-14" />
                 </Button>
+                <span class="tooltip">{i18n.About_Hero.interests_labels.keyboards}</span>
+              </div>
             </div>
-        </Glass>
-        <div>
-            <Button hover={false}>
-                <span>Descarga mi cv</span>
-            </Button>
+          </div>
         </div>
+      </Glass>
+
+      <!-- CV Download Button -->
+      <div class="cv-button-wrapper">
+        <a href="#cv" data-cv-placeholder="true" aria-label={i18n.About_Hero.cv_alt}>
+          <Button hover={false} class="cv-terminal-button">
+            <span class="terminal-prompt">$</span>
+            <span class="cv-text">{i18n.About_Hero.cv_button}</span>
+            <span class="download-icon">↓</span>
+          </Button>
+        </a>
+      </div>
     </div>
+
+    <!-- Logo Column (unchanged) | Columna del logo (sin cambios) -->
+    <div class="col-span-2 flex justify-center inAnimateR opacity-0">
+      <Logo class="w-full h-auto max-w-sm logo-glow" />
+    </div>
+  </div>
+
+  <!-- Mobile Layout | Diseño móvil -->
+  <div class="flex flex-col gap-4 lg:hidden inAnimateL opacity-0">
+    <Glass class="terminal-container terminal-mobile">
+      <!-- Terminal Header -->
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="terminal-title">about.tsx</div>
+      </div>
+
+      <!-- Terminal Body -->
+      <div class="terminal-body">
+        <!-- Line 1: Comment -->
+        <div class="code-line">
+          <span class="line-number">1</span>
+          <span class="comment">// {i18n.About_Hero.comment_greeting}</span>
+        </div>
+
+        <!-- Line 2: Greeting -->
+        <div class="code-line">
+          <span class="line-number">2</span>
+          <span class="keyword">const</span>
+          <span class="variable">greeting</span>
+          <span class="operator">=</span>
+          <span class="string">"<span id="typeR"></span><span class="terminal-cursor"></span>"</span>
+        </div>
+
+        <!-- Line 3: Empty -->
+        <div class="code-line code-line-empty">
+          <span class="line-number">3</span>
+        </div>
+
+        <!-- Line 4: Comment -->
+        <div class="code-line">
+          <span class="line-number">4</span>
+          <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span>
+        </div>
+
+        <!-- Line 5: Title -->
+        <div class="code-line code-line-title">
+          <span class="line-number">5</span>
+          <h2 class="title-text">
+            {i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]}<span class="title-highlight">{`{${i18n.About_Hero.title_highlight}}`}</span>{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
+          </h2>
+        </div>
+
+        <!-- Line 6: Empty -->
+        <div class="code-line code-line-empty">
+          <span class="line-number">6</span>
+        </div>
+
+        <!-- Line 7: Comment -->
+        <div class="code-line">
+          <span class="line-number">7</span>
+          <span class="comment">// {i18n.About_Hero.comment_interests}</span>
+        </div>
+
+        <!-- Line 8: Description -->
+        <div class="code-line code-line-description">
+          <span class="line-number">8</span>
+          <p class="description-text">
+            {i18n.About_Hero.description}
+          </p>
+        </div>
+
+        <!-- Line 9: Empty -->
+        <div class="code-line code-line-empty">
+          <span class="line-number">9</span>
+        </div>
+
+        <!-- Line 10: Icon buttons -->
+        <div class="code-line">
+          <span class="line-number">10</span>
+          <div class="icon-buttons-grid">
+            <div class="tooltip-wrapper">
+              <Button variant="icon" class="terminal-icon-btn">
+                <AI class="w-10 h-10" />
+              </Button>
+              <span class="tooltip">{i18n.About_Hero.interests_labels.ai}</span>
+            </div>
+            <div class="tooltip-wrapper">
+              <Button variant="icon" class="terminal-icon-btn">
+                <CPU class="w-10 h-10" />
+              </Button>
+              <span class="tooltip">{i18n.About_Hero.interests_labels.hardware}</span>
+            </div>
+            <div class="tooltip-wrapper">
+              <Button variant="icon" class="terminal-icon-btn">
+                <Keyboard class="w-10 h-10" />
+              </Button>
+              <span class="tooltip">{i18n.About_Hero.interests_labels.keyboards}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Glass>
+
+    <!-- CV Button Mobile -->
+    <div class="cv-button-wrapper">
+      <a href="#cv" data-cv-placeholder="true" aria-label={i18n.About_Hero.cv_alt}>
+        <Button hover={false} class="cv-terminal-button">
+          <span class="terminal-prompt">$</span>
+          <span class="cv-text">{i18n.About_Hero.cv_button}</span>
+          <span class="download-icon">↓</span>
+        </Button>
+      </a>
+    </div>
+  </div>
 </main>
 
+<style>
+  /* Terminal Container | Contenedor del terminal */
+  .terminal-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Terminal Header | Cabecera del terminal */
+  .terminal-header {
+    background: linear-gradient(to bottom, rgba(31, 15, 45, 0.7), rgba(31, 15, 45, 0.4));
+    border-bottom: 1px solid rgba(148, 111, 179, 0.25);
+    padding: 0.875rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 3rem;
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .dot-red {
+    background: #ff5f56;
+    box-shadow: 0 0 8px rgba(255, 95, 86, 0.4);
+  }
+
+  .dot-yellow {
+    background: #ffbd2e;
+    box-shadow: 0 0 8px rgba(255, 189, 46, 0.4);
+  }
+
+  .dot-green {
+    background: #27c93f;
+    box-shadow: 0 0 8px rgba(39, 201, 63, 0.4);
+  }
+
+  .terminal-header:hover .dot {
+    transform: scale(1.1);
+  }
+
+  .terminal-title {
+    font-family: "Satoshi", sans-serif;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .terminal-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    color: rgba(39, 201, 63, 0.8);
+  }
+
+  .status-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #27c93f;
+    animation: pulse-green 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-green {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 8px rgba(39, 201, 63, 0.6);
+    }
+    50% {
+      opacity: 0.6;
+      box-shadow: 0 0 4px rgba(39, 201, 63, 0.3);
+    }
+  }
+
+  .status-text {
+    font-size: 0.75rem;
+    text-transform: lowercase;
+  }
+
+  /* Terminal Body | Cuerpo del terminal */
+  .terminal-body {
+    padding: 1.5rem 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  .code-line {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.375rem 1.5rem;
+    line-height: 1.8;
+    font-size: 0.875rem;
+    align-items: flex-start;
+  }
+
+  .code-line-empty {
+    min-height: 0.5rem;
+    padding: 0.125rem 1.5rem;
+  }
+
+  .line-number {
+    min-width: 2.5rem;
+    text-align: right;
+    user-select: none;
+    color: rgba(148, 111, 179, 0.35);
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  /* Syntax Highlighting | Resaltado de sintaxis */
+  .comment {
+    color: rgba(161, 127, 188, 0.65);
+    font-style: italic;
+  }
+
+  .comment-block {
+    color: rgba(148, 111, 179, 0.75);
+    font-style: italic;
+  }
+
+  .keyword {
+    color: #AD8FC5;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .variable {
+    color: #C6B0D6;
+    margin-right: 0.5rem;
+  }
+
+  .operator {
+    color: #A17FBC;
+    margin: 0 0.5rem;
+  }
+
+  .string {
+    color: #DED2E8;
+  }
+
+  /* Title Section | Sección del título */
+  .code-line-title {
+    margin: 0.5rem 0;
+  }
+
+  .title-text {
+    font-family: "Satoshi", sans-serif;
+    font-size: 2.75rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+  }
+
+  .title-highlight {
+    color: #946FB3;
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+  }
+
+  /* Description Section | Sección de descripción */
+  .code-line-description {
+    margin: 0.25rem 0;
+  }
+
+  .description-text {
+    font-family: "Satoshi", sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+  }
+
+  /* Terminal Cursor | Cursor del terminal */
+  .terminal-cursor {
+    display: inline-block;
+    width: 0.5rem;
+    height: 1.2em;
+    background: #946FB3;
+    margin-left: 0.125rem;
+    animation: blink-cursor 1.2s step-end infinite;
+    vertical-align: text-bottom;
+  }
+
+  @keyframes blink-cursor {
+    0%, 49% {
+      opacity: 1;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
+  }
+
+  /* Icon Buttons | Botones de iconos */
+  .icon-buttons-grid {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .terminal-icon-btn {
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .terminal-icon-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .terminal-icon-btn :global(.glass-panel) {
+    background: linear-gradient(
+      135deg,
+      rgba(97, 49, 144, 0.1) 0%,
+      rgba(15, 17, 21, 0.3) 50%,
+      rgba(84, 33, 135, 0.08) 100%
+    );
+    border-color: rgba(148, 111, 179, 0.25);
+    transition: all 0.25s ease;
+  }
+
+  .terminal-icon-btn:hover :global(.glass-panel) {
+    background: linear-gradient(
+      135deg,
+      rgba(97, 49, 144, 0.2) 0%,
+      rgba(15, 17, 21, 0.35) 50%,
+      rgba(84, 33, 135, 0.15) 100%
+    );
+    border-color: rgba(148, 111, 179, 0.4);
+    box-shadow: 
+      0 0 20px rgba(148, 111, 179, 0.2),
+      inset 0 1px 0 rgba(222, 210, 232, 0.1);
+  }
+
+  /* Tooltips */
+  .tooltip-wrapper {
+    position: relative;
+  }
+
+  .tooltip {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background: rgba(31, 15, 45, 0.98);
+    backdrop-filter: blur(8px);
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    font-family: "Satoshi", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(148, 111, 179, 0.3);
+    color: #DED2E8;
+    z-index: 10;
+  }
+
+  .tooltip::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(31, 15, 45, 0.98);
+  }
+
+  .tooltip-wrapper:hover .tooltip {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    bottom: -2.75rem;
+  }
+
+  /* CV Button | Botón de CV */
+  .cv-button-wrapper {
+    width: 100%;
+  }
+
+  .cv-button-wrapper a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .cv-terminal-button {
+    width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .cv-terminal-button :global(.glass-panel) {
+    background: linear-gradient(
+      135deg,
+      rgba(84, 33, 135, 0.35) 0%,
+      rgba(97, 49, 144, 0.25) 100%
+    );
+    border-color: rgba(148, 111, 179, 0.4);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cv-terminal-button:hover :global(.glass-panel) {
+    background: linear-gradient(
+      135deg,
+      rgba(84, 33, 135, 0.45) 0%,
+      rgba(97, 49, 144, 0.35) 100%
+    );
+    border-color: rgba(148, 111, 179, 0.6);
+  }
+
+  .terminal-prompt {
+    color: #27c93f;
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  .cv-text {
+    color: #DED2E8;
+    letter-spacing: 0.02em;
+  }
+
+  .download-icon {
+    color: #946FB3;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+  }
+
+  .cv-terminal-button:hover .download-icon {
+    animation: bounce-down 0.8s ease-in-out infinite;
+  }
+
+  @keyframes bounce-down {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Logo Glow Effect | Efecto de brillo del logo */
+  .logo-glow {
+    filter: drop-shadow(0 0 30px rgba(148, 111, 179, 0.25));
+    transition: filter 0.5s ease;
+  }
+
+  .logo-glow:hover {
+    filter: drop-shadow(0 0 40px rgba(148, 111, 179, 0.4));
+  }
+
+  /* Mobile Adjustments | Ajustes para móvil */
+  .terminal-mobile .terminal-body {
+    padding: 1rem 0;
+  }
+
+  .terminal-mobile .code-line {
+    padding: 0.25rem 1rem;
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .terminal-mobile .line-number {
+    min-width: 1.75rem;
+    font-size: 0.75rem;
+  }
+
+  .terminal-mobile .title-text {
+    font-size: 1.75rem;
+  }
+
+  .terminal-mobile .description-text {
+    font-size: 0.9375rem;
+  }
+
+  .terminal-mobile .icon-buttons-grid {
+    gap: 0.75rem;
+  }
+
+  .terminal-mobile .terminal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .terminal-mobile .terminal-status {
+    display: none;
+  }
+
+  /* Responsive Typography | Tipografía responsive */
+  @media (min-width: 640px) {
+    .terminal-mobile .title-text {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .title-text {
+      font-size: 3.25rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .title-text {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
 <script>
-    import { inView } from "motion";
-    import TypeIt from "typeit";
+  import { inView } from "motion"
+  import TypeIt from "typeit"
 
-    inView("#type", ({ target }) => {
-        //@ts-ignore
-        new TypeIt(target, {
-            startDelay: 1000,
-        })
-            .type("Soy eco", { delay: 100 })
-            .move(-2, { delay: 50 })
-            .delete(1)
-            .type("E")
-            .move(null, { to: "END", delay: 500 })
-            .type("👋")
-            .go();
-    });
+  // Desktop TypeIt effect | Efecto TypeIt de escritorio
+  inView("#type", ({ target }) => {
+    //@ts-ignore
+    new TypeIt(target, {
+      startDelay: 1000,
+      speed: 100,
+      waitUntilVisible: true,
+    })
+      .type("Soy eco", { delay: 100 })
+      .move(-2, { delay: 50 })
+      .delete(1)
+      .type("E")
+      .move(null, { to: "END", delay: 500 })
+      .type("👋")
+      .go()
+  })
 
-    inView("#typeR", ({ target }) => {
-        //@ts-ignore
-        new TypeIt(target, {
-            startDelay: 1000,
-        })
-            .type("Soy eco", { delay: 100 })
-            .move(-2, { delay: 50 })
-            .delete(1)
-            .type("E")
-            .move(null, { to: "END", delay: 500 })
-            .type("👋")
-            .go();
-    });
+  // Mobile TypeIt effect | Efecto TypeIt móvil
+  inView("#typeR", ({ target }) => {
+    //@ts-ignore
+    new TypeIt(target, {
+      startDelay: 1000,
+      speed: 100,
+      waitUntilVisible: true,
+    })
+      .type("Soy eco", { delay: 100 })
+      .move(-2, { delay: 50 })
+      .delete(1)
+      .type("E")
+      .move(null, { to: "END", delay: 500 })
+      .type("👋")
+      .go()
+  })
 </script>

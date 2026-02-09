@@ -49,6 +49,23 @@
     "employment": "Desarrollador back-end"
   },
 
+  "About_Hero": {
+    "comment_greeting": "Saludos iniciales",
+    "greeting_text": "Soy Eco",
+    "comment_role": "Rol profesional principal",
+    "title": "Ingeniero de Software con experiencia en el desarrollo Web",
+    "title_highlight": "Software",
+    "comment_interests": "Áreas de experiencia adicionales",
+    "description": "Además de contar con experiencia en áreas de la informática como IA, Hardware, Edición y como secreto Teclados, me gustan mucho los teclados",
+    "cv_button": "download --cv",
+    "cv_alt": "Descarga mi CV",
+    "interests_labels": {
+      "ai": "Inteligencia Artificial",
+      "hardware": "Hardware & Servidores",
+      "keyboards": "Teclados Mecánicos"
+    }
+  },
+
   "WIP": {
     "paragraph": "¡Hola a todos! Estoy emocionado de compartir mi trabajo de esta página contigo. Quiero que sepas que este proyecto aún está en desarrollo. Si te gusta lo que ves hasta ahora y quieres contribuir, ¡tu ayuda es más que bienvenida! Además, si estás interesado/a en seguir de cerca mi progreso o simplemente deseas ponerte en contacto, estoy activo/a en mis redes sociales. Aunque estas son temporales, siempre estaré disponible.",
     "extra": "Aun no se que pensar de ese navbar... ¿Lo cambiamos?"

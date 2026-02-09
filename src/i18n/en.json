@@ -49,6 +49,23 @@
     "employment": "Back-end developer"
   },
 
+  "About_Hero": {
+    "comment_greeting": "Initial greetings",
+    "greeting_text": "I'm Eco",
+    "comment_role": "Main professional role",
+    "title": "Software Engineer with experience in Web development",
+    "title_highlight": "Software",
+    "comment_interests": "Additional areas of expertise",
+    "description": "In addition to having experience in computer science areas such as AI, Hardware, Editing and as a secret Keyboards, I really like keyboards",
+    "cv_button": "download --cv",
+    "cv_alt": "Download my CV",
+    "interests_labels": {
+      "ai": "Artificial Intelligence",
+      "hardware": "Hardware & Servers",
+      "keyboards": "Mechanical Keyboards"
+    }
+  },
+
   "WIP": {
     "paragraph": "Hello everyone! I'm excited to share my work on this page with you. I want you to know that this project is still in progress. If you like what you see so far and want to contribute, your help is more than welcome! Also, if you're interested in following my progress closely or just want to get in touch, I'm active on my social networks. Although these are temporary, I'll always be available.",
     "extra": "Still not sure what to think about that navbar... Shall we change it?"
