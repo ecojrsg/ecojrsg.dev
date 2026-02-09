@@ -2,6 +2,7 @@
 type Props = {
   class?: string;
   hover?: boolean;
+  glow?: boolean;
   pixelEffect?: boolean;
   pixelGap?: number;
   pixelSpeed?: number;
@@ -12,6 +13,7 @@ type Props = {
 const {
   class: classList,
   hover = false,
+  glow = false,
   pixelEffect = false,
   pixelGap,
   pixelSpeed,
@@ -20,10 +22,11 @@ const {
 } = Astro.props;
 
 const hov = hover ? "hover:ring hover:ring-Eco-70 hover:border-1" : "";
+const glowClass = glow ? "glass-glow" : "";
 ---
 
 <div
-  class={`bg-Eco-60 bg-opacity-20 rounded-xl backdrop-blur-[2px] border-Eco-50 border-2 border-opacity-50 ${classList} ${hov} ${pixelEffect ? "relative" : ""}`}
+  class={`glass-panel ${glowClass} ${classList} ${hov} ${pixelEffect ? "relative" : ""}`}
 >
   {pixelEffect && (
     <pixel-canvas
@@ -42,3 +45,47 @@ const hov = hover ? "hover:ring hover:ring-Eco-70 hover:border-1" : "";
     import "@/components/interactive/PixelCanvas";
   </script>
 )}
+
+<style>
+  .glass-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(97, 49, 144, 0.15) 0%,
+      rgba(15, 17, 21, 0.4) 50%,
+      rgba(84, 33, 135, 0.1) 100%
+    );
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    border: 1px solid rgba(148, 111, 179, 0.2);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(148, 111, 179, 0.3) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(148, 111, 179, 0.15) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+
+  .glass-glow {
+    box-shadow:
+      0 0 30px -5px rgba(148, 111, 179, 0.15),
+      0 20px 50px -15px rgba(31, 15, 45, 0.5),
+      inset 0 1px 0 rgba(222, 210, 232, 0.05);
+  }
+</style>

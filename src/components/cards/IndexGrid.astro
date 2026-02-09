@@ -1,86 +1,108 @@
 ---
-import CardMain from "@/components/cards/CardMain.astro"
-import AboutCard from "@/components/cards/AboutCard.astro"
-import Link from "@/components/Link.astro"
-import LetsWork from "@/components/cards/LetsWork.astro"
-import SlideCard from "@/components/cards/SlideCard.astro"
-import MyTeam from "@/components/cards/MyTeam.astro"
-import Glass from "@/components/Glass.astro"
-import Pulse from "@/components/Pulse.astro"
+import CardMain from "@/components/cards/CardMain.astro";
+import AboutCard from "@/components/cards/AboutCard.astro";
+import Link from "@/components/Link.astro";
+import LetsWork from "@/components/cards/LetsWork.astro";
+import SlideCard from "@/components/cards/SlideCard.astro";
+import MyTeam from "@/components/cards/MyTeam.astro";
+import Glass from "@/components/Glass.astro";
+import Pulse from "@/components/Pulse.astro";
 
-import { getI18N } from "@/i18n/index"
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <script>
-    import { loaderAnimation } from "../../lib/constants"
-    import {  stagger, spring, timeline, type TimelineDefinition } from "motion"
+    import { loaderAnimation } from "../../lib/constants";
+    import { stagger, spring, timeline, type TimelineDefinition } from "motion";
 
     const cards = document.querySelectorAll(".card");
 
     const sequence = [
-    loaderAnimation,
-    [
-        cards,
-        { y: ["40%", "0%"], opacity: [0, 1] },
-        {
-            at: "-0.1",
-            duration: 0.4,
-            delay: stagger(0.3),
-            easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
-        },
-    ],
-];
+        loaderAnimation,
+        [
+            cards,
+            { y: ["40%", "0%"], opacity: [0, 1] },
+            {
+                at: "-0.1",
+                duration: 0.4,
+                delay: stagger(0.3),
+                easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+            },
+        ],
+    ];
 
-timeline(sequence as TimelineDefinition);
+    timeline(sequence as TimelineDefinition);
 </script>
 
-<div class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:grid-rows-8 lg:grid-cols-4 lg:gap-4">
+<div
+    class="m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-3 md:gap-3 md:p-6 lg:grid-rows-8 lg:grid-cols-4 lg:gap-4"
+>
     <div class="card md:col-span-3 md:row-span-3">
-        <CardMain/>
+        <CardMain />
     </div>
-    <div class=" card lg:row-span-6 min-h-full">
+    <div class="card lg:row-span-6 min-h-full">
         <Link href="#About">
-            <AboutCard/>
+            <AboutCard />
         </Link>
     </div>
     <div class="card lg:row-span-4 min-h-full">
-        <LetsWork/>
+        <LetsWork />
     </div>
     <div class="card lg:col-span-2 lg:row-span-2 min-h-full">
         <Link href="#Technology">
-            <SlideCard/>
+            <SlideCard />
         </Link>
     </div>
     <div class="card lg:row-span-2 min-h-full">
-        <Link href="#WIP"> 
-            <MyTeam/>
+        <Link href="#WIP">
+            <MyTeam />
         </Link>
     </div>
     <div class="card">
         <Link href="#WIP">
-            <Glass hover={true} class="min-h-full p-6 flex justify-between items-center">
-                <h3 class="font-satoshi font-bold text-xl">{i18n.Repo_Card.title}</h3>
-                <p class="font-satoshi font-normal opacity-50">{i18n.Status.status}</p>
+            <Glass
+                hover={true}
+                pixelEffect={true}
+                class="min-h-full p-6 flex justify-between items-center"
+            >
+                <h3 class="font-satoshi font-bold text-xl">
+                    {i18n.Repo_Card.title}
+                </h3>
+                <p class="font-satoshi font-normal opacity-50">
+                    {i18n.Status.status}
+                </p>
             </Glass>
         </Link>
     </div>
     <div class="card">
         <Link href="https://blog.ecojrsg.dev" blank={true}>
-            <Glass hover={true} class="min-h-full p-6 flex justify-between items-center">
-                <h3 class="font-satoshi font-bold text-xl">{i18n.Blog_Card.title}</h3>
+            <Glass
+                hover={true}
+                pixelEffect={true}
+                class="min-h-full p-6 flex justify-between items-center"
+            >
+                <h3 class="font-satoshi font-bold text-xl">
+                    {i18n.Blog_Card.title}
+                </h3>
             </Glass>
         </Link>
     </div>
     <div class="card">
-        <Glass hover={true} class="min-h-full p-3 flex flex-col">
+        <Glass
+            hover={true}
+            pixelEffect={true}
+            class="min-h-full p-3 flex flex-col"
+        >
             <div class="flex justify-between">
                 <h3 class="font-satoshi text-lg">{i18n.Now_Card.title}</h3>
-                <Pulse/>
+                <Pulse />
             </div>
-            <p class="font-satoshi font-normal text-sm opacity-50">{i18n.Now_Card.employment}</p>
+            <p class="font-satoshi font-normal text-sm opacity-50">
+                {i18n.Now_Card.employment}
+            </p>
         </Glass>
     </div>
 </div>

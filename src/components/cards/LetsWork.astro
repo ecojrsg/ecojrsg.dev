@@ -3,19 +3,27 @@ import Glass from "@/components/Glass.astro";
 import ArrowDownR from "@/components/icons/ArrowDownR.astro";
 import Link from "@/components/Link.astro";
 
-import { getI18N } from "@/i18n/index"
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
-<Glass hover={true} class="min-h-full p-6 flex flex-col justify-between">
+<Glass
+    hover={true}
+    pixelEffect={true}
+    class="min-h-full p-6 flex flex-col justify-between"
+>
     <h3 class="font-satoshi font-bold text-xl pb-3">
         {i18n.Lets_Work_Card.title}
     </h3>
     <div>
-        <p class="font-satoshi-italic font-normal opacity-50">{i18n.Lets_Work_Card.details}</p>
-        <a class="font-satoshi-italic" href="mailto:eco.jrsg@gmail.com">eco.jsrg@gmail.com</a>
+        <p class="font-satoshi-italic font-normal opacity-50">
+            {i18n.Lets_Work_Card.details}
+        </p>
+        <a class="font-satoshi-italic" href="mailto:eco.jrsg@gmail.com"
+            >eco.jsrg@gmail.com</a
+        >
     </div>
     <div class="flex flex-col !font-satoshi">
         <p class="font-normal opacity-50">{i18n.Lets_Work_Card.social}</p>
@@ -26,8 +34,12 @@ const i18n = getI18N({ currentLocale })
     <div>
         <Link href="#WIP">
             <div class="flex justify-end items-center content-center group">
-                <p class="font-satoshi font-normal text-xs pr-2">{i18n.Lets_Work_Card.bntContact}</p>
-                <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
+                <p class="font-satoshi font-normal text-xs pr-2">
+                    {i18n.Lets_Work_Card.bntContact}
+                </p>
+                <ArrowDownR
+                    class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"
+                />
             </div>
         </Link>
     </div>

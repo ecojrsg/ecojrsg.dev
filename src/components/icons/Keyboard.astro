@@ -1,1 +1,20 @@
-<svg {...Astro.props} xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-keyboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 6m0 2a2 2 0 0 1 2 -2h16a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2z" /><path d="M6 10l0 .01" /><path d="M10 10l0 .01" /><path d="M14 10l0 .01" /><path d="M18 10l0 .01" /><path d="M6 14l0 .01" /><path d="M18 14l0 .01" /><path d="M10 14l4 .01" /></svg>
+---
+const props = Astro.props;
+---
+<svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class:list={["icon-hover", props.class]}>
+  <defs>
+    <linearGradient id="kb-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#946FB3" />
+      <stop offset="100%" style="stop-color:#DED2E8" />
+    </linearGradient>
+  </defs>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M2 6m0 2a2 2 0 0 1 2 -2h16a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2z" stroke="url(#kb-grad)" />
+  <path d="M6 10l0 .01" stroke="url(#kb-grad)" />
+  <path d="M10 10l0 .01" stroke="url(#kb-grad)" />
+  <path d="M14 10l0 .01" stroke="url(#kb-grad)" />
+  <path d="M18 10l0 .01" stroke="url(#kb-grad)" />
+  <path d="M6 14l0 .01" stroke="url(#kb-grad)" />
+  <path d="M18 14l0 .01" stroke="url(#kb-grad)" />
+  <path d="M10 14l4 .01" stroke="url(#kb-grad)" />
+</svg>

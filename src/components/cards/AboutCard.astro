@@ -1,14 +1,18 @@
 ---
-import Glass from "@/components/Glass.astro"
-import ArrowDownR from "@/components/icons/ArrowDownR.astro"
+import Glass from "@/components/Glass.astro";
+import ArrowDownR from "@/components/icons/ArrowDownR.astro";
 
-import { getI18N } from "@/i18n/index"
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
-const i18n = getI18N({ currentLocale })
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
-<Glass hover={true} class="flex flex-col justify-between p-6 min-h-full h-min group">
+<Glass
+    hover={true}
+    pixelEffect={true}
+    class="flex flex-col justify-between p-6 min-h-full h-min group"
+>
     <h3 class="font-satoshi font-bold text-xl">{i18n.About_Card.title}</h3>
     <p class="font-satoshi text-sm">
         {i18n.About_Card.intro}
@@ -25,7 +29,11 @@ const i18n = getI18N({ currentLocale })
         {i18n.About_Card.more}
     </p>
     <div class="flex justify-end items-center content-center">
-        <p class="font-satoshi font-normal text-xs pr-2">{i18n.About_Card.btnMore}</p>
-        <ArrowDownR class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"/>
+        <p class="font-satoshi font-normal text-xs pr-2">
+            {i18n.About_Card.btnMore}
+        </p>
+        <ArrowDownR
+            class="w-4 group-hover:translate-x-1 group-hover:translate-y-1 transition-all"
+        />
     </div>
 </Glass>

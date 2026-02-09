@@ -3,17 +3,64 @@ import Glass from "@/components/Glass.astro"
 
 interface Props {
     hover?: boolean;
-    class?: string; // Allow passing additional classes to the button
+    class?: string;
+    variant?: "default" | "primary" | "icon";
 }
 
-const { hover = true, class: additionalClasses } = Astro.props;
+const { hover = true, class: additionalClasses, variant = "default" } = Astro.props;
+
+const variantClasses = {
+    default: "btn-default",
+    primary: "btn-primary",
+    icon: "btn-icon",
+};
 ---
 
-<button class:list={[additionalClasses]} type="button">
+<button class:list={["group btn-wrapper", additionalClasses]} type="button">
     <Glass class:list={[
-        'inline-block p-3 shadow-social-btn px-4 py-2 active:shadow-clear-shadow cursor-pointer active:translate-x-[3px] active:translate-y-[3px]',
-        hover && 'hover:text-Eco-20'
+        'inline-flex items-center gap-2 px-5 py-2.5 cursor-pointer transition-all duration-300 ease-out',
+        variantClasses[variant],
+        hover && 'hover:text-Eco-160 hover:border-Eco-80'
     ]}>
         <slot/>
     </Glass>
 </button>
+
+<style>
+    .btn-wrapper {
+        position: relative;
+    }
+
+    .btn-wrapper :global(.glass-panel) {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 3px 3px 0px 0px rgba(31, 15, 45, 1);
+    }
+
+    .btn-wrapper:active :global(.glass-panel) {
+        transform: translate(3px, 3px);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    .btn-wrapper:hover :global(.glass-panel) {
+        box-shadow:
+            3px 3px 0px 0px rgba(31, 15, 45, 1),
+            0 0 20px -5px rgba(148, 111, 179, 0.3);
+    }
+
+    .btn-primary :global(.glass-panel) {
+        background: linear-gradient(
+            135deg,
+            rgba(84, 33, 135, 0.4) 0%,
+            rgba(97, 49, 144, 0.3) 100%
+        );
+        border-color: rgba(148, 111, 179, 0.4);
+    }
+
+    .btn-icon {
+        min-width: 4rem;
+        min-height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
