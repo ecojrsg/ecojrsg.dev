@@ -1,19 +1,7 @@
 import { onMount, onCleanup } from "solid-js";
 import * as d3 from "d3";
+import type { Feature, Geometry } from "geojson";
 import worldData from "@/lib/world.json";
-
-// Define a basic GeoJSON Feature interface for better type safety
-interface GeoJSONFeature {
-  type: "Feature";
-  properties: {
-    name: string;
-    // Add other properties if needed
-  };
-  geometry: {
-    type: string;
-    coordinates: any; // More specific type could be defined if necessary
-  };
-}
 
 const GlobeComponent = ({ scale = 250 }) => {
   let mapContainer: HTMLDivElement | undefined;
@@ -69,25 +57,28 @@ const GlobeComponent = ({ scale = 250 }) => {
       .append("g")
       .attr("class", "countries")
       .selectAll("path")
-      .data(worldData.features)
+      .data(worldData.features as unknown as Feature<Geometry, { name: string }>[])
       .enter()
       .append("path")
-      .attr("d", (d: GeoJSONFeature) => pathGenerator(d))
-      .attr("fill", (d: { properties: { name: string } }) =>
+      .attr("d", (d) => pathGenerator(d))
+      .attr("fill", (d) =>
         visitedCountries.includes(d.properties.name) ? "#7B50A1" : "white"
       )
       .style("stroke", "black")
       .style("stroke-width", 0.3)
       .style("opacity", 0.8);
 
-    d3.timer(() => {
+    const timer = d3.timer(() => {
       const rotate = projection.rotate();
       const k = sensitivity / projection.scale();
       projection.rotate([rotate[0] - 1 * k, rotate[1]]);
-      svg.selectAll("path").attr("d", (d: GeoJSONFeature) => pathGenerator(d));
+      svg
+        .selectAll<SVGPathElement, Feature<Geometry, { name: string }>>("path")
+        .attr("d", (d) => pathGenerator(d));
     }, 200);
 
     onCleanup(() => {
+      timer.stop(); // Stop the timer loop
       svg.remove(); // Remove the SVG element when the component unmounts
     });
   });
