@@ -13,8 +13,8 @@ const i18n = getI18N({ currentLocale });
 
 <main>
   <!-- Desktop Layout | Diseño de escritorio -->
-  <div class="hidden grid-cols-5 gap-8 items-center lg:grid">
-    <div class="flex flex-col gap-4 col-span-3 inAnimateL">
+  <div class="hidden lg:block inAnimateL">
+    <div class="flex flex-col gap-4">
       <Glass class="terminal-container">
         <!-- Terminal Header | Cabecera de terminal -->
         <div class="terminal-header">
@@ -29,6 +29,8 @@ const i18n = getI18N({ currentLocale });
             <span class="status-text">ready</span>
           </div>
         </div>
+
+        <Logo class="terminal-watermark" aria-hidden="true" />
 
         <!-- Terminal Body | Cuerpo del terminal -->
         <div class="terminal-body">
@@ -140,11 +142,6 @@ const i18n = getI18N({ currentLocale });
           </Button>
         </a>
       </div>
-    </div>
-
-    <!-- Logo Column (unchanged) | Columna del logo (sin cambios) -->
-    <div class="col-span-2 flex justify-center inAnimateR opacity-0">
-      <Logo class="w-full h-auto max-w-sm logo-glow" />
     </div>
   </div>
 
@@ -284,8 +281,22 @@ const i18n = getI18N({ currentLocale });
     overflow: hidden;
   }
 
+  .terminal-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at 82% 68%,
+      rgba(148, 111, 179, 0.14),
+      transparent 34%
+    );
+    z-index: 0;
+  }
+
   /* Terminal Header | Cabecera del terminal */
   .terminal-header {
+    position: relative;
     background: linear-gradient(
       to bottom,
       rgba(31, 15, 45, 0.7),
@@ -297,6 +308,7 @@ const i18n = getI18N({ currentLocale });
     align-items: center;
     gap: 1rem;
     min-height: 3rem;
+    z-index: 2;
   }
 
   .terminal-dots {
@@ -377,9 +389,11 @@ const i18n = getI18N({ currentLocale });
 
   /* Terminal Body | Cuerpo del terminal */
   .terminal-body {
+    position: relative;
     padding: 1.5rem 0;
     font-family:
       ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    z-index: 1;
   }
 
   .code-line {
@@ -651,14 +665,18 @@ const i18n = getI18N({ currentLocale });
     }
   }
 
-  /* Logo Glow Effect | Efecto de brillo del logo */
-  .logo-glow {
-    filter: drop-shadow(0 0 30px rgba(148, 111, 179, 0.25));
-    transition: filter 0.5s ease;
-  }
-
-  .logo-glow:hover {
-    filter: drop-shadow(0 0 40px rgba(148, 111, 179, 0.4));
+  /* Terminal Watermark | Marca de agua de terminal */
+  .terminal-watermark {
+    position: absolute;
+    right: -4rem;
+    bottom: -5rem;
+    width: min(42%, 24rem);
+    height: auto;
+    opacity: 0.055;
+    pointer-events: none;
+    filter: drop-shadow(0 0 48px rgba(148, 111, 179, 0.22));
+    transform: rotate(-8deg);
+    z-index: 0;
   }
 
   /* Mobile Adjustments | Ajustes para móvil */
