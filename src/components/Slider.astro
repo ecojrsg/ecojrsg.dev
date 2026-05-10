@@ -1,89 +1,264 @@
 ---
+type SliderVariant = "compact" | "section"
+type SliderDirection = "forward" | "backward"
+
+type Props = {
+  variant?: SliderVariant
+  direction?: SliderDirection
+  pauseOnHover?: boolean
+  class?: string
+}
+
+const {
+  variant = "section",
+  direction = "forward",
+  pauseOnHover = variant === "section",
+  class: className = "",
+} = Astro.props
+
+const logos = [
+  { name: "Astro", src: "/logos/Astro.svg", class: "logo-astro" },
+  { name: "JavaScript", src: "/logos/Js.svg", class: "logo-js" },
+  { name: "TypeScript", src: "/logos/Ts.svg", class: "logo-ts" },
+  { name: "Node.js", src: "/logos/Node.svg", class: "logo-node" },
+  { name: "Python", src: "/logos/Python.svg", class: "logo-python" },
+  { name: "SQL", src: "/logos/Sql.svg", class: "logo-sql" },
+  { name: "React", src: "/logos/React.svg", class: "logo-react" },
+  { name: "NestJS", src: "/logos/NestJS.svg", class: "logo-nest" },
+] as const
+
+const repeatedLogos = Array.from({ length: 4 }, () => logos).flat()
 ---
 
-<!-- Slider main container -->
-<div class="embla" style="mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)">
-    <div class="embla__container">
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/Astro.svg" alt="" class="w-14 h-16">
+<div
+  class:list={[
+    "tech-slider",
+    `tech-slider--${variant}`,
+    `tech-slider--${direction}`,
+    className,
+  ]}
+  data-pause-on-hover={pauseOnHover ? "true" : "false"}
+>
+  <div class="tech-slider__track">
+    <div class="tech-slider__list">
+      {
+        repeatedLogos.map((logo, index) => (
+          <div class="tech-slider__slide">
+            <div class="tech-slider__item">
+              <img
+                src={logo.src}
+                alt={variant === "section" && index < logos.length ? logo.name : ""}
+                class:list={["tech-slider__logo", logo.class]}
+                loading="lazy"
+              />
+              {variant === "section" && (
+                <span class="tech-slider__label">{logo.name}</span>
+              )}
             </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/Js.svg" alt="" class="w-14 h-16">
-            </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/Ts.svg" alt="" class="w-14 h-16">
-            </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/Node.svg" alt="" class="w-14 h-16">
-            </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/Python.svg" alt="" class="w-14 h-20">
-            </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/Sql.svg" alt="" class="w-14 h-16">
-            </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/React.svg" alt="" class="w-14 h-16">
-            </div>
-        </div>
-        <div class="embla__slide">
-            <div class="flex justify-center">
-                <img src="/logos/NestJS.svg" alt="" class="w-14 h-16">
-            </div>
-        </div>
+          </div>
+        ))
+      }
     </div>
+  </div>
 </div>
 
-<script>
-    import EmblaCarousel from 'embla-carousel'
-    import Autoscroll from 'embla-carousel-auto-scroll'
+<style>
+  .tech-slider {
+    --slide-size: 10rem;
+    --slide-gap: 1rem;
+    --logo-size: 3.5rem;
+    --item-padding: 0.75rem;
+    --marquee-duration: 42s;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding-block: 0.5rem;
+    margin-block: -0.5rem;
+    contain: inline-size;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 14%,
+      black 86%,
+      transparent 100%
+    );
+  }
 
-    const emblaList = document.querySelectorAll('.embla')
+  .tech-slider__track {
+    overflow: visible;
+    max-width: 100%;
+  }
 
-    emblaList.forEach(embladN => {
-        const options = {
-            loop: true,
-            speed: 10,
-            slidesToScroll: 1,
-            draggable: true,
-            dragFree: true,
-            skipSnaps: false,   
-        }
-        const plugins = [Autoscroll({
-            speed: 1,
-            startDelay: 3000,
-            stopOnInteraction: false,
-        })]
-        const emblaNode = embladN as HTMLElement;
-        EmblaCarousel(emblaNode, options, plugins)
-    });
-</script>
+  .tech-slider__list {
+    display: flex;
+    align-items: stretch;
+    touch-action: pan-y pinch-zoom;
+    will-change: transform;
+    backface-visibility: hidden;
+    width: max-content;
+    animation: tech-marquee var(--marquee-duration) linear infinite;
+  }
 
-<!-- <script>
-    // import Swiper JS
-    import Swiper from 'swiper';
-    // import Swiper styles
-    import 'swiper/css';
+  .tech-slider--backward .tech-slider__list {
+    animation-direction: reverse;
+  }
 
-    new Swiper('.swiper', {
-        slidesPerView: 5,
-        loop: true,
-        centeredSlides: true,
-        autoplay: {
-            delay: 2500,
-        },
-    });
-</script> -->
+  .tech-slider[data-pause-on-hover="true"]:hover .tech-slider__list {
+    animation-play-state: paused;
+  }
+
+  .tech-slider__slide {
+    width: var(--slide-size);
+    flex-shrink: 0;
+    padding-inline: calc(var(--slide-gap) / 2);
+  }
+
+  .tech-slider__item {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: var(--item-padding);
+  }
+
+  .tech-slider__logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+    filter: drop-shadow(0 0 16px rgba(148, 111, 179, 0.14));
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .tech-slider__item:hover .tech-slider__logo {
+    transform: translateY(-2px) scale(1.04);
+    filter: drop-shadow(0 0 22px rgba(148, 111, 179, 0.28));
+  }
+
+  .tech-slider--compact {
+    --slide-size: 4.65rem;
+    --slide-gap: 0.35rem;
+    --logo-size: 2.65rem;
+    --item-padding: 0.35rem;
+    --marquee-duration: 34s;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 18%,
+      black 82%,
+      transparent 100%
+    );
+  }
+
+  .tech-slider--compact .tech-slider__item {
+    opacity: 0.88;
+  }
+
+  .tech-slider--section {
+    --slide-size: 9.75rem;
+    --slide-gap: 1rem;
+    --logo-size: 3.75rem;
+    --item-padding: 1rem;
+    --marquee-duration: 46s;
+  }
+
+  .tech-slider--section .tech-slider__item {
+    min-height: 7.25rem;
+    flex-direction: column;
+    border: 1px solid rgba(148, 111, 179, 0.16);
+    border-radius: 1.25rem;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(148, 111, 179, 0.13), transparent 56%),
+      rgba(15, 17, 21, 0.32);
+    box-shadow: inset 0 1px 0 rgba(222, 210, 232, 0.05);
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .tech-slider--section .tech-slider__item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(148, 111, 179, 0.32);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(148, 111, 179, 0.2), transparent 58%),
+      rgba(15, 17, 21, 0.42);
+  }
+
+  .tech-slider__label {
+    font-family: "Satoshi", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.72);
+    letter-spacing: 0.02em;
+  }
+
+  .logo-python {
+    height: calc(var(--logo-size) * 1.12);
+  }
+
+  @keyframes tech-marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .tech-slider {
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      );
+    }
+
+    .tech-slider--compact {
+      --slide-size: 4rem;
+      --slide-gap: 0.25rem;
+      --logo-size: 2.25rem;
+      --marquee-duration: 54s;
+    }
+
+    .tech-slider--section {
+      --slide-size: 7.75rem;
+      --slide-gap: 0.75rem;
+      --logo-size: 3rem;
+      --marquee-duration: 64s;
+    }
+
+    .tech-slider--section .tech-slider__item {
+      min-height: 6.25rem;
+      border-radius: 1rem;
+    }
+
+    .tech-slider__label {
+      font-size: 0.72rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tech-slider--section {
+      --slide-size: 8.75rem;
+      --marquee-duration: 58s;
+    }
+
+    .tech-slider--compact {
+      --marquee-duration: 48s;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .tech-slider--section {
+      --slide-size: 10.5rem;
+    }
+  }
+</style>
