@@ -122,6 +122,8 @@ class PixelCanvasElement extends HTMLElement {
   private timeInterval: number = 1000 / 60;
   private timePrevious: number = performance.now();
   private reducedMotion: boolean;
+  private cssWidth: number = 0;
+  private cssHeight: number = 0;
   private _initialized: boolean = false;
   private _resizeObserver: ResizeObserver | null = null;
   private _parent: Element | null = null;
@@ -238,11 +240,12 @@ class PixelCanvasElement extends HTMLElement {
   handleResize() {
     if (!this.ctx || !this._initialized) return;
 
-    const rect = this.getBoundingClientRect();
-    if (rect.width === 0 || rect.height === 0) return;
+    const width = this.clientWidth;
+    const height = this.clientHeight;
+    if (width === 0 || height === 0) return;
 
-    const width = Math.floor(rect.width);
-    const height = Math.floor(rect.height);
+    this.cssWidth = width;
+    this.cssHeight = height;
 
     const dpr = window.devicePixelRatio || 1;
     this.canvas.width = width * dpr;
@@ -257,14 +260,14 @@ class PixelCanvasElement extends HTMLElement {
   }
 
   getDistanceToCenter(x: number, y: number) {
-    const dx = x - this.canvas.width / 2;
-    const dy = y - this.canvas.height / 2;
+    const dx = x - this.cssWidth / 2;
+    const dy = y - this.cssHeight / 2;
     return Math.sqrt(dx * dx + dy * dy);
   }
 
   getDistanceToBottomLeft(x: number, y: number) {
     const dx = x;
-    const dy = this.canvas.height - y;
+    const dy = this.cssHeight - y;
     return Math.sqrt(dx * dx + dy * dy);
   }
 
@@ -272,8 +275,8 @@ class PixelCanvasElement extends HTMLElement {
     if (!this.ctx) return;
     this.pixels = [];
 
-    for (let x = 0; x < this.canvas.width; x += this.gap) {
-      for (let y = 0; y < this.canvas.height; y += this.gap) {
+    for (let x = 0; x < this.cssWidth; x += this.gap) {
+      for (let y = 0; y < this.cssHeight; y += this.gap) {
         const color =
           this.colors[Math.floor(Math.random() * this.colors.length)];
         let delay = 0;
@@ -307,7 +310,7 @@ class PixelCanvasElement extends HTMLElement {
       this.timePrevious = timeNow - (timePassed % this.timeInterval);
 
       if (!this.ctx) return;
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.clearRect(0, 0, this.cssWidth, this.cssHeight);
 
       let allIdle = true;
       for (const pixel of this.pixels) {

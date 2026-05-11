@@ -30,7 +30,7 @@ const glowClass = glow ? "glass-glow" : "";
 >
   {pixelEffect && (
     <pixel-canvas
-      class="absolute inset-0 rounded-xl"
+      class="pointer-events-none absolute inset-0 h-full w-full rounded-[inherit]"
       data-gap={pixelGap}
       data-speed={pixelSpeed}
       data-colors={pixelColors?.join(",")}
