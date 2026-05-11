@@ -46,7 +46,7 @@
 
   "Now_Card": {
     "title": "Now",
-    "employment": "Back-end developer"
+    "employment": "Technology Consultant | DevOps"
   },
 
   "Technology": {
@@ -62,6 +62,18 @@
     "clients": "Clients",
     "paragraph1": "Throughout my professional journey, I have had the opportunity to explore diverse cultures and education systems across several countries, which has deeply enriched my perspective. My academic background includes studies at the University of Seville in Spain and Deggendorf Institute of Technology in Germany, where I took advanced courses in areas such as artificial intelligence algorithms and responsive, accessible user interface design.",
     "paragraph2": "This valuable knowledge has allowed me to develop innovative projects and create effective solutions for the challenges I face both in my work environment and in my personal initiatives. I am committed to continuous improvement and to applying my skills to create a positive impact in every task I take on."
+  },
+
+  "Not_Found": {
+    "eyebrow": "error / route not found",
+    "title": "This route was lost in the system",
+    "description": "The resource you are trying to open does not exist, was moved, or is still under construction. You can return home and keep exploring from a safe route.",
+    "terminal_status": "scan: route_not_found",
+    "terminal_origin": "origin: ecojrsg.dev",
+    "terminal_action": "action: redirect_available",
+    "home": "Back home",
+    "github": "View GitHub",
+    "hint": "If you arrived from an external link, it probably points to an older version of the site."
   },
 
   "About_Hero": {

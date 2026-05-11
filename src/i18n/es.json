@@ -46,7 +46,7 @@
 
   "Now_Card": {
     "title": "Ahora",
-    "employment": "Desarrollador back-end"
+    "employment": "Asesor Tecnológico | DevOps"
   },
 
   "Technology": {
@@ -62,6 +62,18 @@
     "clients": "Clientes",
     "paragraph1": "A lo largo de mi trayectoria profesional, he tenido la oportunidad de explorar diversas culturas y sistemas educativos en varios países, lo que ha enriquecido profundamente mi perspectiva. Mi formación incluye estudios en la Universidad de Sevilla en España y en el Deggendorf Institute of Technology en Alemania, donde cursé asignaturas avanzadas en áreas como algoritmos de inteligencia artificial y diseño de interfaces de usuario responsivas y accesibles.",
     "paragraph2": "Este valioso conocimiento me ha permitido desarrollar proyectos innovadores y formular soluciones efectivas para los desafíos que enfrento tanto en mi entorno laboral como en mis iniciativas personales. Estoy comprometido con la mejora continua y la aplicación de mis habilidades para generar un impacto positivo en cada tarea que realizo."
+  },
+
+  "Not_Found": {
+    "eyebrow": "error / ruta no encontrada",
+    "title": "La ruta se perdió en el sistema",
+    "description": "El recurso que intentas abrir no existe, fue movido o todavía está en construcción. Puedes volver al inicio y seguir explorando desde una ruta segura.",
+    "terminal_status": "scan: route_not_found",
+    "terminal_origin": "origin: ecojrsg.dev",
+    "terminal_action": "action: redirect_available",
+    "home": "Volver al inicio",
+    "github": "Ver GitHub",
+    "hint": "Si llegaste desde un enlace externo, probablemente apunta a una versión anterior del sitio."
   },
 
   "About_Hero": {
