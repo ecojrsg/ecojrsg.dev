@@ -49,6 +49,21 @@
     "employment": "Desarrollador back-end"
   },
 
+  "Technology": {
+    "title": "Tecnologias",
+    "description": "Con conocimiento en muchos lenguajes y tecnoligas. Te invito a conocerlas todas en mi",
+    "contact": "o contactame para conocer todo de lo que soy capaz 👍"
+  },
+
+  "Experience": {
+    "title": "Mi experiencia",
+    "countries": "Paises",
+    "universities": "Universidades",
+    "clients": "Clientes",
+    "paragraph1": "A lo largo de mi trayectoria profesional, he tenido la oportunidad de explorar diversas culturas y sistemas educativos en varios países, lo que ha enriquecido profundamente mi perspectiva. Mi formación incluye estudios en la Universidad de Sevilla en España y en el Deggendorf Institute of Technology en Alemania, donde cursé asignaturas avanzadas en áreas como algoritmos de inteligencia artificial y diseño de interfaces de usuario responsivas y accesibles.",
+    "paragraph2": "Este valioso conocimiento me ha permitido desarrollar proyectos innovadores y formular soluciones efectivas para los desafíos que enfrento tanto en mi entorno laboral como en mis iniciativas personales. Estoy comprometido con la mejora continua y la aplicación de mis habilidades para generar un impacto positivo en cada tarea que realizo."
+  },
+
   "About_Hero": {
     "comment_greeting": "Saludos iniciales",
     "greeting_text": "Soy Eco",

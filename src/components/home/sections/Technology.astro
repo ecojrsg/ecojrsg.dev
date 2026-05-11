@@ -1,19 +1,23 @@
 ---
 import Slider from "@/components/Slider.astro"
 import { LINKS } from "@/lib/constants";
+import { getI18N } from "@/i18n/index";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <div class="flex flex-col items-center font-satoshi gap-12">
-    <h1 class="text-5xl">Tecnologias</h1>
+    <h1 class="text-5xl">{i18n.Technology.title}</h1>
     <div class="upSlider w-full">
         <Slider variant="section" pauseOnHover={true} />
     </div>
     <div class="text-center">
         <p>
-            Con conocimiento en muchos lenguajes y tecnoligas. Te invito a conocerlas todas en mi <a href={LINKS.github} target="_blank"><span class="text-Eco-100">Github</span></a>
+            {i18n.Technology.description} <a href={LINKS.github} target="_blank"><span class="text-Eco-100">Github</span></a>
         </p>
         <p>
-            o contactame para conocer todo de lo que soy capaz 👍
+            {i18n.Technology.contact}
         </p>
     </div>
 </div>

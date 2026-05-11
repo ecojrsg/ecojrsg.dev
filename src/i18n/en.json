@@ -49,6 +49,21 @@
     "employment": "Back-end developer"
   },
 
+  "Technology": {
+    "title": "Technologies",
+    "description": "With knowledge across many languages and technologies. I invite you to explore them all on my",
+    "contact": "or contact me to learn everything I am capable of 👍"
+  },
+
+  "Experience": {
+    "title": "My experience",
+    "countries": "Countries",
+    "universities": "Universities",
+    "clients": "Clients",
+    "paragraph1": "Throughout my professional journey, I have had the opportunity to explore diverse cultures and education systems across several countries, which has deeply enriched my perspective. My academic background includes studies at the University of Seville in Spain and Deggendorf Institute of Technology in Germany, where I took advanced courses in areas such as artificial intelligence algorithms and responsive, accessible user interface design.",
+    "paragraph2": "This valuable knowledge has allowed me to develop innovative projects and create effective solutions for the challenges I face both in my work environment and in my personal initiatives. I am committed to continuous improvement and to applying my skills to create a positive impact in every task I take on."
+  },
+
   "About_Hero": {
     "comment_greeting": "Initial greetings",
     "greeting_text": "I'm Eco",
