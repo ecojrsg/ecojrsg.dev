@@ -1,0 +1,203 @@
+---
+import { render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Glass from "@/components/Glass.astro";
+import Link from "@/components/Link.astro";
+import PatternBG from "@/components/PatternBG.astro";
+import { getI18N } from "@/i18n/index";
+import {
+  formatBlogDate,
+  getBlogSlug,
+  getPublishedBlogPosts,
+  type BlogPost,
+} from "@/lib/blog";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedBlogPosts("es");
+
+  return posts.map((post) => ({
+    params: { slug: getBlogSlug(post) },
+    props: { post },
+  }));
+}
+
+type Props = {
+  post: BlogPost;
+};
+
+const lang = "es";
+const { post } = Astro.props;
+const i18n = getI18N({ currentLocale: lang });
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} | Eco Blog`} description={post.data.description}>
+  <PatternBG>
+    <main class="post-shell px-4 py-16 sm:px-6 lg:px-10">
+      <article class="mx-auto w-full max-w-3xl">
+        <Link href="/blog" class="back-link">← {i18n.Blog.back}</Link>
+
+        <header class="post-header">
+          <p class="eyebrow">{i18n.Blog.published}</p>
+          <h1>{post.data.title}</h1>
+          <p class="description">{post.data.description}</p>
+          <div class="meta">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {formatBlogDate(post.data.pubDate, lang)}
+            </time>
+            <div class="tags">
+              {post.data.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </div>
+        </header>
+
+        <Glass class="content-card p-6 sm:p-8" glow={true}>
+          <div class="blog-content">
+            <Content />
+          </div>
+        </Glass>
+      </article>
+    </main>
+  </PatternBG>
+</Layout>
+
+<style>
+  .post-shell {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .back-link,
+  .eyebrow,
+  .meta,
+  .tags {
+    font-family: "satoshi", sans-serif;
+  }
+
+  .back-link {
+    display: inline-flex;
+    color: #d2c1df;
+    font-weight: 800;
+    transition: transform 180ms ease, color 180ms ease;
+  }
+
+  .back-link:hover {
+    color: white;
+    transform: translateX(-3px);
+  }
+
+  .post-header {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ad8fc5;
+  }
+
+  h1 {
+    margin-top: 0.75rem;
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.86;
+    letter-spacing: -0.06em;
+  }
+
+  .description {
+    margin-top: 1.25rem;
+    font-family: "satoshi", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.58);
+  }
+
+  time {
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    color: #ad8fc5;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tags span {
+    border: 1px solid rgba(173, 143, 197, 0.3);
+    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    color: #d2c1df;
+  }
+
+  .blog-content {
+    font-family: "satoshi", sans-serif;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .blog-content :global(h1),
+  .blog-content :global(h2),
+  .blog-content :global(h3) {
+    margin-top: 2rem;
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: white;
+  }
+
+  .blog-content :global(h1) {
+    font-size: 2.6rem;
+  }
+
+  .blog-content :global(h2) {
+    font-size: 2rem;
+  }
+
+  .blog-content :global(p),
+  .blog-content :global(li) {
+    margin-top: 1rem;
+    line-height: 1.8;
+  }
+
+  .blog-content :global(ul) {
+    margin-top: 1rem;
+    list-style: disc;
+    padding-left: 1.4rem;
+  }
+
+  .blog-content :global(code) {
+    border-radius: 0.35rem;
+    background: rgba(5, 1, 7, 0.72);
+    padding: 0.15rem 0.35rem;
+    color: #ded2e8;
+  }
+
+  .blog-content :global(pre) {
+    margin-top: 1.25rem;
+    overflow-x: auto;
+    border: 1px solid rgba(173, 143, 197, 0.2);
+    border-radius: 0.9rem;
+    background: rgba(5, 1, 7, 0.78);
+    padding: 1rem;
+  }
+
+  .blog-content :global(pre code) {
+    background: transparent;
+    padding: 0;
+  }
+</style>

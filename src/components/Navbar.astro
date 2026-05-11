@@ -8,6 +8,11 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const localizeHref = (href: string) => {
+    if (lang !== "en" || !href.startsWith("/") || href.startsWith("/en")) return href;
+    return href === "/" ? "/en/" : `/en${href}`;
+};
+const homeHref = localizeHref("/");
 
 type Props = {
     class?: string 
@@ -20,14 +25,14 @@ const {class: className} = Astro.props
     <div class="navbar-bg p-4 hidden lg:block w-4/5">
         <div class="flex justify-between items-center">
             <div class="px-2">
-                <Link href="/">
+                <Link href={homeHref}>
                     <Logo class="w-10"/>
                 </Link>
             </div>
             <div class=" flex justify-end items-center">
                 {navLinks.map((link, index) => (
                     <>
-                        <Link href={link.href} class="px-2">
+                        <Link href={localizeHref(link.href)} class="px-2">
                             <span class="font-satoshi text-gray-300 hover:text-white transition-all">{t(link.i18nKey)}</span>
                         </Link>
                         { (index === 4 || index === 6) && (

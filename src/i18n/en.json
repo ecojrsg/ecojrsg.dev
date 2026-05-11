@@ -76,6 +76,16 @@
     "hint": "If you arrived from an external link, it probably points to an older version of the site."
   },
 
+  "Blog": {
+    "eyebrow": "logbook / technical notes",
+    "title": "Blog",
+    "description": "Ideas, lessons, and notes about development, software, and technology.",
+    "empty": "There are no published posts yet.",
+    "read_more": "Read post",
+    "back": "Back to blog",
+    "published": "Published"
+  },
+
   "About_Hero": {
     "comment_greeting": "Initial greetings",
     "greeting_text": "I'm Eco",

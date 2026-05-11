@@ -76,6 +76,16 @@
     "hint": "Si llegaste desde un enlace externo, probablemente apunta a una versión anterior del sitio."
   },
 
+  "Blog": {
+    "eyebrow": "bitácora / notas técnicas",
+    "title": "Blog",
+    "description": "Ideas, aprendizajes y apuntes sobre desarrollo, software y tecnología.",
+    "empty": "Aún no hay posts publicados.",
+    "read_more": "Leer post",
+    "back": "Volver al blog",
+    "published": "Publicado"
+  },
+
   "About_Hero": {
     "comment_greeting": "Saludos iniciales",
     "greeting_text": "Soy Eco",
