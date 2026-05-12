@@ -3,6 +3,7 @@ import Glass from "@/components/Glass.astro";
 import Logo from "@/components/Logo.astro";
 import Button from "@/components/Button.astro";
 import Link from "@/components/Link.astro";
+import BlogLinkButton from "@/components/BlogLinkButton.astro";
 import { getI18N } from "@/i18n/index";
 
 const { currentLocale } = Astro;
@@ -132,8 +133,8 @@ const i18n = getI18N({ currentLocale });
         </div>
       </Glass>
 
-      <!-- CV Download Button -->
-      <div class="cv-button-wrapper">
+      <!-- Action Buttons -->
+      <div class="about-actions">
         <a
           href="/docs/cv-profesional-continuo.pdf"
           data-cv-placeholder="true"
@@ -146,6 +147,7 @@ const i18n = getI18N({ currentLocale });
             <span class="download-icon">↓</span>
           </Button>
         </a>
+        <BlogLinkButton href="" />
       </div>
     </div>
   </div>
@@ -262,8 +264,8 @@ const i18n = getI18N({ currentLocale });
       </div>
     </Glass>
 
-    <!-- CV Button Mobile -->
-    <div class="cv-button-wrapper">
+    <!-- Action Buttons Mobile -->
+    <div class="about-actions">
       <a
         href="/docs/cv-profesional-continuo.pdf"
         data-cv-placeholder="true"
@@ -276,6 +278,7 @@ const i18n = getI18N({ currentLocale });
           <span class="download-icon">↓</span>
         </Button>
       </a>
+      <BlogLinkButton href="" />
     </div>
   </div>
 </main>
@@ -599,14 +602,25 @@ const i18n = getI18N({ currentLocale });
   }
 
   /* CV Button | Botón de CV */
-  .cv-button-wrapper {
+  .about-actions {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.9rem;
   }
 
-  .cv-button-wrapper a {
-    display: block;
-    width: 100%;
+  .about-actions a {
     text-decoration: none;
+  }
+
+  .about-actions > a:first-child {
+    flex: 1 1 18rem;
+  }
+
+  .about-actions :global(.blog-link-button) {
+    flex: 0 0 auto;
+    margin-left: auto;
   }
 
   .cv-terminal-button {
@@ -721,6 +735,19 @@ const i18n = getI18N({ currentLocale });
 
   .terminal-mobile .terminal-status {
     display: none;
+  }
+
+  .terminal-mobile + .about-actions {
+    display: grid;
+    justify-items: end;
+  }
+
+  .terminal-mobile + .about-actions > a:first-child {
+    width: 100%;
+  }
+
+  .terminal-mobile + .about-actions :global(.blog-link-button) {
+    margin-left: 0;
   }
 
   /* Responsive Typography | Tipografía responsive */
