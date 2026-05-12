@@ -445,6 +445,7 @@ const firstMember = teamPayload[0];
 
   let typewriterTimeout: number | undefined;
   let typewriterRun = 0;
+  let activeMemberIndex = 0;
 
   const writeName = (name: string) => {
     if (!nameElement) return;
@@ -460,7 +461,7 @@ const firstMember = teamPayload[0];
 
       nameElement.textContent = `${name.slice(0, index)}${index < name.length ? "|" : ""}`;
 
-      if (index <= name.length) {
+      if (index < name.length) {
         typewriterTimeout = window.setTimeout(() => typeNextCharacter(index + 1), 42);
       }
     };
@@ -468,11 +469,15 @@ const firstMember = teamPayload[0];
     typeNextCharacter(1);
   };
 
-  const updateMemberInfo = (index: number) => {
+  const updateMemberInfo = (index: number, animateName = true) => {
     const member = (teamMembers as TeamViewModel[])[index];
     if (!member) return;
 
-    writeName(member.name);
+    if (animateName) {
+      writeName(member.name);
+    } else if (nameElement) {
+      nameElement.textContent = member.name;
+    }
 
     if (roleElement) roleElement.textContent = member.role;
     if (descriptionElement) descriptionElement.textContent = member.description;
@@ -497,6 +502,14 @@ const firstMember = teamPayload[0];
     effect: "cards",
     grabCursor: true,
     loop: true,
+    speed: 420,
+    threshold: 28,
+    shortSwipes: false,
+    longSwipesRatio: 0.38,
+    longSwipesMs: 160,
+    resistanceRatio: 0.72,
+    preventClicks: true,
+    preventClicksPropagation: true,
     keyboard: {
       enabled: true,
     },
@@ -508,9 +521,13 @@ const firstMember = teamPayload[0];
     },
     on: {
       init(instance) {
-        updateMemberInfo(instance.realIndex);
+        activeMemberIndex = instance.realIndex;
+        updateMemberInfo(instance.realIndex, false);
       },
-      slideChange(instance) {
+      realIndexChange(instance) {
+        if (instance.realIndex === activeMemberIndex) return;
+
+        activeMemberIndex = instance.realIndex;
         updateMemberInfo(instance.realIndex);
       },
     },
