@@ -18,12 +18,12 @@ const {
 
 const logos = [
   { name: "Astro", src: "/logos/Astro.svg", class: "logo-astro" },
-  { name: "JavaScript", src: "/logos/Js.svg", class: "logo-js" },
+  { name: "JavaScript", src: "/logos/Js.svg", class: "logo-js", featured: true },
   { name: "TypeScript", src: "/logos/Ts.svg", class: "logo-ts" },
   { name: "Node.js", src: "/logos/Node.svg", class: "logo-node" },
-  { name: "Python", src: "/logos/Python.svg", class: "logo-python" },
-  { name: "Odoo", src: "/logos/odoo.png", class: "logo-odoo" },
-  { name: "PostgreSQL", src: "/logos/Postgresql.svg", class: "logo-postgresql" },
+  { name: "Python", src: "/logos/Python.svg", class: "logo-python", featured: true },
+  { name: "Odoo", src: "/logos/odoo.png", class: "logo-odoo", featured: true },
+  { name: "PostgreSQL", src: "/logos/Postgresql.svg", class: "logo-postgresql", featured: true },
   { name: "React", src: "/logos/React.svg", class: "logo-react" },
   { name: "NestJS", src: "/logos/NestJS.svg", class: "logo-nest" },
 ] as const
@@ -45,7 +45,12 @@ const repeatedLogos = Array.from({ length: 4 }, () => logos).flat()
       {
         repeatedLogos.map((logo, index) => (
           <div class="tech-slider__slide">
-            <div class="tech-slider__item">
+            <div
+              class:list={[
+                "tech-slider__item",
+                "featured" in logo && logo.featured && "tech-slider__item--featured",
+              ]}
+            >
               <img
                 src={logo.src}
                 alt={variant === "section" && index < logos.length ? logo.name : ""}
@@ -164,6 +169,8 @@ const repeatedLogos = Array.from({ length: 4 }, () => logos).flat()
     --logo-size: 3.75rem;
     --item-padding: 1rem;
     --marquee-duration: 46s;
+    padding-block: 1.25rem;
+    margin-block: -1.25rem;
   }
 
   .tech-slider--section .tech-slider__item {
@@ -181,12 +188,85 @@ const repeatedLogos = Array.from({ length: 4 }, () => logos).flat()
       transform 0.25s ease;
   }
 
+  .tech-slider--section .tech-slider__item--featured {
+    position: relative;
+    isolation: isolate;
+    border-color: rgba(148, 111, 179, 0.34);
+    box-shadow:
+      0 0 14px rgba(148, 111, 179, 0.18),
+      inset 0 0 18px rgba(148, 111, 179, 0.08),
+      inset 0 1px 0 rgba(222, 210, 232, 0.08);
+  }
+
+  .tech-slider--section .tech-slider__item--featured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(
+      135deg,
+      rgba(148, 111, 179, 0.25),
+      rgba(181, 92, 255, 0.68),
+      rgba(148, 111, 179, 0.25)
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+
+  .tech-slider--section .tech-slider__item--featured::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 2px;
+    pointer-events: none;
+    z-index: 2;
+    background: conic-gradient(
+      from var(--laser-angle, 0deg),
+      transparent 0deg,
+      transparent 50deg,
+      rgba(84, 33, 135, 0.18) 72deg,
+      rgba(148, 111, 179, 0.7) 88deg,
+      rgba(181, 92, 255, 1) 98deg,
+      rgba(148, 111, 179, 0.7) 108deg,
+      rgba(84, 33, 135, 0.18) 124deg,
+      transparent 148deg,
+      transparent 360deg
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    animation: tech-laser-border 3.2s linear infinite;
+  }
+
   .tech-slider--section .tech-slider__item:hover {
     transform: translateY(-2px);
     border-color: rgba(148, 111, 179, 0.32);
     background:
       radial-gradient(circle at 50% 0%, rgba(148, 111, 179, 0.2), transparent 58%),
       rgba(15, 17, 21, 0.42);
+  }
+
+  .tech-slider--section .tech-slider__item--featured:hover {
+    border-color: rgba(181, 92, 255, 0.5);
+    box-shadow:
+      0 0 20px rgba(148, 111, 179, 0.24),
+      inset 0 0 22px rgba(148, 111, 179, 0.12),
+      inset 0 1px 0 rgba(222, 210, 232, 0.12);
   }
 
   .tech-slider__label {
@@ -208,6 +288,18 @@ const repeatedLogos = Array.from({ length: 4 }, () => logos).flat()
 
     to {
       transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @property --laser-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes tech-laser-border {
+    to {
+      --laser-angle: 360deg;
     }
   }
 

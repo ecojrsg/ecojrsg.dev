@@ -28,7 +28,7 @@ const i18n = getI18N({ currentLocale });
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 5),
+                (progress) => target.innerHTML = Math.round(progress * 30) + "+",
                 { duration: 1, easing: "ease-out" }
             )
         }, 2500)
@@ -39,7 +39,7 @@ const i18n = getI18N({ currentLocale });
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 113),
+                (progress) => target.innerHTML = Math.round(progress * 100) + "+",
                 { duration: 2, easing: "ease-out" }
             )
         }, 3000)
@@ -60,7 +60,7 @@ const i18n = getI18N({ currentLocale });
                 </div>
                 <div class="w-28 pt-6 lg:pt-0">
                     <Glass class="p-3 text-3xl universidades">0</Glass>
-                    <p>{i18n.Experience.universities}</p>
+                    <p>{i18n.Experience.projects}</p>
                 </div>
                 <div class="w-28 pt-6 pb-6 lg:p-0">
                     <Glass class="p-3 text-3xl clientes">0</Glass>

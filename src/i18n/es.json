@@ -56,7 +56,7 @@
   },
 
   "Technology": {
-    "title": "Tecnologías",
+    "title": "Stack Tecnológico",
     "description": "Con conocimiento en muchos lenguajes y tecnoligas. Te invito a conocerlas todas en mi",
     "contact": "o contactame para conocer todo de lo que soy capaz 👍"
   },
@@ -64,10 +64,10 @@
   "Experience": {
     "title": "Mi experiencia",
     "countries": "Paises",
-    "universities": "Universidades",
+    "projects": "Proyectos",
     "clients": "Clientes",
-    "paragraph1": "A lo largo de mi trayectoria profesional, he tenido la oportunidad de explorar diversas culturas y sistemas educativos en varios países, lo que ha enriquecido profundamente mi perspectiva. Mi formación incluye estudios en la Universidad de Sevilla en España y en el Deggendorf Institute of Technology en Alemania, donde cursé asignaturas avanzadas en áreas como algoritmos de inteligencia artificial y diseño de interfaces de usuario responsivas y accesibles.",
-    "paragraph2": "Este valioso conocimiento me ha permitido desarrollar proyectos innovadores y formular soluciones efectivas para los desafíos que enfrento tanto en mi entorno laboral como en mis iniciativas personales. Estoy comprometido con la mejora continua y la aplicación de mis habilidades para generar un impacto positivo en cada tarea que realizo."
+    "paragraph1": "A lo largo de mi trayectoria he participado en proyectos enfocados en automatización, infraestructura, ERP y desarrollo de software, colaborando con empresas y equipos en distintos entornos tecnológicos. Esta experiencia me ha permitido entender tanto la parte técnica como las necesidades operativas reales detrás de cada implementación.",
+    "paragraph2": "Actualmente me dedico principalmente a asesorar empresas de manera transparente y directa, ayudándolas a tomar decisiones tecnológicas prácticas y sostenibles según sus necesidades reales. Gracias a mi experiencia en distintas áreas de la tecnología —desde desarrollo frontend y backend hasta DevOps, infraestructura e implementación de sistemas ERP— he desarrollado una visión técnica y operativa que me permite comprender tanto la parte tecnológica como los desafíos reales dentro de las empresas."
   },
 
   "Not_Found": {
