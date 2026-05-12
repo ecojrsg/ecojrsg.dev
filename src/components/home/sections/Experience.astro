@@ -2,6 +2,7 @@
 import GlobeComponent from "@/components/interactive/Globe";
 import Glass from "@/components/Glass.astro";
 import { getI18N } from "@/i18n/index";
+import BlogLinkButton from "@/components/BlogLinkButton.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -52,7 +53,7 @@ const i18n = getI18N({ currentLocale });
             <GlobeComponent client:load/>
         </div>
         <div class="flex flex-col text-center justify-around lg:h-[500px] inAnimateR opacity-0">
-            <h1 class="text-5xl">{i18n.Experience.title}</h1>
+            <h1 class="text-5xl pb-2">{i18n.Experience.title}</h1>
             <div class="flex justify-center gap-8">
                 <div class="w-28 pt-6 lg:pt-0">
                     <Glass class="p-3 text-3xl paises">0</Glass>

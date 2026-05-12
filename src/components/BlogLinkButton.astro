@@ -2,14 +2,24 @@
 interface Props {
   href?: string;
   label?: string;
+  labelEs?: string;
+  labelEn?: string;
   blank?: boolean;
   class?: string;
 }
 
-const { href = "", label, blank = false, class: className = "" } = Astro.props;
+const {
+  href = "",
+  label,
+  labelEs,
+  labelEn,
+  blank = false,
+  class: className = "",
+} = Astro.props;
 
 const defaultLabel = Astro.currentLocale === "en" ? "Read more on my blog" : "Leer mas en mi blog";
-const buttonLabel = label?.trim() || defaultLabel;
+const localizedLabel = Astro.currentLocale === "en" ? labelEn : labelEs;
+const buttonLabel = label?.trim() || localizedLabel?.trim() || defaultLabel;
 
 const target = blank ? "_blank" : undefined;
 const rel = blank ? "noopener noreferrer" : undefined;
