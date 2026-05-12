@@ -70,6 +70,15 @@
     "paragraph2": "Actualmente me dedico principalmente a asesorar empresas de manera transparente y directa, ayudándolas a tomar decisiones tecnológicas prácticas y sostenibles según sus necesidades reales. Gracias a mi experiencia en distintas áreas de la tecnología —desde desarrollo frontend y backend hasta DevOps, infraestructura e implementación de sistemas ERP— he desarrollado una visión técnica y operativa que me permite comprender tanto la parte tecnológica como los desafíos reales dentro de las empresas."
   },
 
+  "Team": {
+    "title": "Mi equipo",
+    "eyebrow": "personas recomendadas",
+    "description": "Colaboradores y perfiles de confianza con los que trabajo o recomiendo por la calidad de su trabajo.",
+    "slider_label": "Tarjetas arrastrables de integrantes del equipo",
+    "drag_hint": "Arrastra las tarjetas para cambiar de integrante",
+    "active_label": "integrante activo"
+  },
+
   "Not_Found": {
     "eyebrow": "error / ruta no encontrada",
     "title": "La ruta se perdió en el sistema",

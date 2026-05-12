@@ -70,6 +70,15 @@
     "paragraph2": "Currently, I am primarily dedicated to advising companies in a transparent and direct manner, helping them make practical and sustainable technological decisions according to their real needs. Thanks to my experience in different areas of technology —from frontend and backend development to DevOps, infrastructure, and ERP system implementation— I have developed a technical and operational vision that allows me to understand both the technological part and the real challenges within companies."
   },
 
+  "Team": {
+    "title": "My team",
+    "eyebrow": "recommended people",
+    "description": "Trusted collaborators and profiles I work with or recommend for the quality of their work.",
+    "slider_label": "Draggable team member cards",
+    "drag_hint": "Drag the cards to switch team member",
+    "active_label": "active member"
+  },
+
   "Not_Found": {
     "eyebrow": "error / route not found",
     "title": "This route was lost in the system",
