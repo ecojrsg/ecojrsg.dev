@@ -14,9 +14,15 @@
 
   "About_Card": {
     "title": "About me",
-    "intro": "I am a passionate Software Engineering student, with extensive experience in various roles within development projects. My main skills include mastery of languages such as:",
-    "more": "But my interest is not limited to just software development. I am also a computer hardware enthusiast. From creating and maintaining servers to assembling custom PCs and keyboards.",
-    "btnMore": "More about me"
+    "intro": "Technology Consultant and Official Odoo Partner, specialized in ERP implementation, process automation, and infrastructure solutions for businesses.",
+    "more": "I combine experience in software development, DevOps, and systems integration to help companies adopt technology in a practical, scalable, and results-oriented way.",
+    "btnMore": "More about me",
+    "lts_1": "Consulting",
+    "lts_2": "Development",
+    "lts_3": "Odoo",
+    "lts_4": "Infrastructure",
+    "lts_5": "DevOps",
+    "lts_6": "Integrations"
   },
 
   "Lets_Work_Card": {
@@ -90,16 +96,16 @@
     "comment_greeting": "Initial greetings",
     "greeting_text": "I'm Eco",
     "comment_role": "Main professional role",
-    "title": "Software Engineer with experience in Web development",
+    "title": "Software Engineer specialized in scalable solutions.",
     "title_highlight": "Software",
     "comment_interests": "Additional areas of expertise",
-    "description": "In addition to having experience in computer science areas such as AI, Hardware, Editing and as a secret Keyboards, I really like keyboards",
-    "cv_button": "download --cv",
+    "description": "In addition to working in software development and infrastructure, I currently collaborate with companies and projects as an Official Odoo Partner, helping to implement ERP solutions, automation, and scalable technologies focused on optimizing processes and generating real value through modern and open-source tools.",
+    "cv_button": "Download --cv",
     "cv_alt": "Download my CV",
+    "odoo": "// Meet Odoo, I'm an Official Odoo Partner with my company Katze",
     "interests_labels": {
-      "ai": "Artificial Intelligence",
-      "hardware": "Hardware & Servers",
-      "keyboards": "Mechanical Keyboards"
+      "odoo": "Meet Odoo",
+      "katze": "My company Katze"
     }
   },
 

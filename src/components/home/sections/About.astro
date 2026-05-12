@@ -2,6 +2,7 @@
 import Glass from "@/components/Glass.astro";
 import Logo from "@/components/Logo.astro";
 import Button from "@/components/Button.astro";
+import Link from "@/components/Link.astro";
 import { getI18N } from "@/i18n/index";
 
 const { currentLocale } = Astro;
@@ -98,30 +99,36 @@ const i18n = getI18N({ currentLocale });
             <span class="line-number">11</span>
           </div>
 
-          <!-- Line 12: Icon buttons -->
-          <!-- <div class="code-line">
+          <!-- Line 12: Empty -->
+          <div class="code-line code-line-empty">
             <span class="line-number">12</span>
+            <p class="comment">
+              {i18n.About_Hero.odoo}
+            </p>
+          </div>
+
+          <!-- Line 13: Icon buttons -->
+          <div class="code-line">
+            <span class="line-number">13</span>
             <div class="icon-buttons-grid">
               <div class="tooltip-wrapper">
-                <Button variant="icon" class="terminal-icon-btn">
-                  <AI class="w-14 h-14" />
-                </Button>
-                <span class="tooltip">{i18n.About_Hero.interests_labels.ai}</span>
+                <Link href="https://www.odoo.com?utm_campaign=partner-c63cf07f&utm_source=partner_ref">
+                  <Button variant="icon" class="terminal-icon-btn">
+                    <img src="logos/odoo.png" alt="Odoo" style="width: 30px;">
+                  </Button>
+                </Link>
+                <span class="tooltip">{i18n.About_Hero.interests_labels.odoo}</span>
               </div>
               <div class="tooltip-wrapper">
-                <Button variant="icon" class="terminal-icon-btn">
-                  <CPU class="w-14 h-14" />
-                </Button>
-                <span class="tooltip">{i18n.About_Hero.interests_labels.hardware}</span>
-              </div>
-              <div class="tooltip-wrapper">
-                <Button variant="icon" class="terminal-icon-btn">
-                  <Keyboard class="w-14 h-14" />
-                </Button>
-                <span class="tooltip">{i18n.About_Hero.interests_labels.keyboards}</span>
+                <Link href="https://katzekingdom.com">
+                  <Button variant="icon" class="terminal-icon-btn">
+                    <Logo class="w-[27px]" />
+                  </Button>
+                </Link>
+                <span class="tooltip">{i18n.About_Hero.interests_labels.katze}</span>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </Glass>
 
@@ -551,7 +558,7 @@ const i18n = getI18N({ currentLocale });
 
   .tooltip {
     position: absolute;
-    bottom: -3rem;
+    bottom: calc(100% + 0.75rem);
     left: 50%;
     transform: translateX(-50%) scale(0.9);
     background: rgba(31, 15, 45, 0.98);
@@ -573,20 +580,22 @@ const i18n = getI18N({ currentLocale });
   .tooltip::before {
     content: "";
     position: absolute;
-    top: -6px;
+    top: auto;
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-bottom: 6px solid rgba(31, 15, 45, 0.98);
+    border-bottom: 0;
+    border-top: 6px solid rgba(31, 15, 45, 0.98);
   }
 
   .tooltip-wrapper:hover .tooltip {
     transform: translateX(-50%) scale(1);
     opacity: 1;
-    bottom: -2.75rem;
+    bottom: calc(100% + 0.5rem);
   }
 
   /* CV Button | Botón de CV */

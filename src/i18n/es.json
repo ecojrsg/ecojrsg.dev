@@ -3,8 +3,8 @@
     "welcome": "Bienvenido",
     "paragraph": {
       "part1": "¡Hola, mundo! Soy ",
-      "partB": "Eco_Jrsg",
-      "part2": ", un apasionado estudiante de ingeniería en software y un enamorado empedernido de la informática en su totalidad, desde el más desafiante software hasta los intrincados secretos del funcionamiento del hardware."
+      "partB": "Jonathan Serna (Eco_Jrsg)",
+      "part2": ", ingeniero de software y entusiasta de la tecnología. Disfruto construir soluciones que combinan desarrollo, automatización e infraestructura, explorando constantemente nuevas tecnologías y herramientas open-source."
     }
   },
 
@@ -14,9 +14,15 @@
 
   "About_Card": {
     "title": "Sobre mi",
-    "intro": "Soy un apasionado estudiante de Ingeniería en Software, con una amplia experiencia en diversos roles dentro de proyectos de desarrollo. Mis habilidades principales incluyen dominio de lenguajes como:",
-    "more": "Pero mi interés no se limita solo al desarrollo de software, también soy un entusiasta del hardware informático. Desde la creación y mantenimiento de servidores hasta el ensamblaje de PC y teclados personalizados.",
-    "btnMore": "Mas sobre mi"
+    "intro": "Asesor Tecnológico y Partner Oficial de Odoo, especializado en implementación de ERP, automatización de procesos y soluciones de infraestructura para empresas.",
+    "more": "Combino experiencia en desarrollo de software, DevOps e integración de sistemas para ayudar a negocios a adoptar tecnología de forma práctica, escalable y orientada a resultados.",
+    "btnMore": "Mas sobre mi",
+    "lts_1": "Asesoría",
+    "lts_2": "Desarrollo",
+    "lts_3": "Odoo",
+    "lts_4": "Infraestructura",
+    "lts_5": "DevOps",
+    "lts_6": "Integraciones"
   },
 
   "Lets_Work_Card": {
@@ -90,16 +96,16 @@
     "comment_greeting": "Saludos iniciales",
     "greeting_text": "Soy Eco",
     "comment_role": "Rol profesional principal",
-    "title": "Ingeniero de Software con experiencia en el desarrollo Web",
+    "title": "Ingeniero de Software especializado en soluciones escalables.",
     "title_highlight": "Software",
     "comment_interests": "Áreas de experiencia adicionales",
-    "description": "Además de contar con experiencia en áreas de la informática como IA, Hardware, Edición y como secreto Teclados, me gustan mucho los teclados",
-    "cv_button": "download --cv",
+    "description": "Además de trabajar en desarrollo de software e infraestructura, actualmente colaboro con empresas y proyectos como Partner Oficial de Odoo, ayudando a implementar soluciones ERP, automatización y tecnologías escalables enfocadas en optimizar procesos y generar valor real mediante herramientas modernas y open-source.",
+    "cv_button": "Download --cv",
     "cv_alt": "Descarga mi CV",
+    "odoo": "// Conoce Odoo, la plataforma ERP de la que soy Partner Oficial con mi empresa Katze",
     "interests_labels": {
-      "ai": "Inteligencia Artificial",
-      "hardware": "Hardware & Servidores",
-      "keyboards": "Teclados Mecánicos"
+      "odoo": "Conoce Odoo",
+      "katze": "Mi empresa Katze"
     }
   },
 
