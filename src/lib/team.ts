@@ -52,7 +52,7 @@ export const teamMembers: TeamMember[] = [
       instagram: "",
     },
     es: {
-      name: "Yari",
+      name: "Yari Ortiz",
       role: "Editor de video",
       description:
         "Colaborador recomendado para produccion audiovisual, organizacion de flujos de edicion y contenido visual.",
@@ -94,14 +94,14 @@ export const teamMembers: TeamMember[] = [
       instagram: "",
     },
     es: {
-      name: "Sebas",
+      name: "Sebas Estrada",
       role: "Colaborador creativo",
       description:
         "Apoyo recomendado para proyectos visuales, ideas creativas y colaboraciones digitales.",
       highlights: ["Creatividad", "Apoyo visual", "Colaboracion"],
     },
     en: {
-      name: "Sebas",
+      name: "Sebas Estrada",
       role: "Creative Collaborator",
       description:
         "Recommended support for visual projects, creative ideas, and digital collaborations.",
