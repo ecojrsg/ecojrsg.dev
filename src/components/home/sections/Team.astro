@@ -2,6 +2,7 @@
 import "swiper/css";
 import "swiper/css/effect-cards";
 
+import BlogLinkButton from "@/components/BlogLinkButton.astro";
 import Logo from "@/components/Logo.astro";
 import Emilio from "@/components/icons/Emilio.astro";
 import Yari from "@/components/icons/Yari.astro";
@@ -22,10 +23,13 @@ const memberIcons: Record<TeamMemberIcon, typeof Logo> = {
 
 const teamPayload = teamMembers.map((member) => ({
   id: member.id,
+  links: member.links,
   ...member[locale],
 }));
 
 const firstMember = teamPayload[0];
+const getMemberSocialHref = (links?: (typeof teamPayload)[number]["links"]) => links?.instagram || links?.website || links?.github || "";
+const firstMemberSocialHref = getMemberSocialHref(firstMember.links);
 ---
 
 <section class="team-section font-satoshi" aria-labelledby="team-title">
@@ -76,9 +80,21 @@ const firstMember = teamPayload[0];
         </p>
       </div>
 
-      <ul id="team-member-highlights" class="team-info__highlights">
-        {firstMember.highlights.map((highlight) => <li>{highlight}</li>)}
-      </ul>
+      <div class="flex justify-between items-center">
+        <ul id="team-member-highlights" class="team-info__highlights custom-underline">
+          {firstMember.highlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+
+      <div id="team-member-social-action" class="team-info__social-action" hidden={!firstMemberSocialHref}>
+        <BlogLinkButton
+          href={firstMemberSocialHref}
+          labelEs={firstMember.links?.labelEs}
+          labelEn={firstMember.links?.labelEn}
+          blank
+          class="team-info__social-link"
+        />
+      </div>
+      </div>
     </div>
   </div>
 
@@ -89,7 +105,7 @@ const firstMember = teamPayload[0];
   .team-section {
     width: 100%;
     display: grid;
-    gap: clamp(3rem, 7vw, 5.5rem);
+    gap: clamp(1rem, 5vw, 3.5rem);
     padding-block: clamp(1rem, 3vw, 2rem);
   }
 
@@ -366,6 +382,23 @@ const firstMember = teamPayload[0];
     box-shadow: inset 0 1px 0 rgba(222, 210, 232, 0.05);
   }
 
+  .team-info__social-action {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .team-info__social-action[hidden] {
+    display: none;
+  }
+
+  .custom-underline {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; /* grosor */
+    text-underline-offset: 6px;     /* separación */
+  }
+
   @media (max-width: 900px) {
     .team-section__content {
       grid-template-columns: 1fr;
@@ -434,6 +467,10 @@ const firstMember = teamPayload[0];
   const descriptionElement = document.getElementById("team-member-description");
   const highlightsElement = document.getElementById("team-member-highlights");
   const countElement = document.getElementById("team-count");
+  const socialActionElement = document.getElementById("team-member-social-action");
+  const socialLinkElement = socialActionElement?.querySelector<HTMLAnchorElement>("a");
+  const socialTooltipElement = socialActionElement?.querySelector<HTMLElement>(".blog-link-button__tooltip");
+  const locale = document.documentElement.lang === "en" ? "en" : "es";
 
   type TeamViewModel = {
     id: string;
@@ -441,6 +478,13 @@ const firstMember = teamPayload[0];
     role: string;
     description: string;
     highlights: string[];
+    links?: {
+      instagram?: string;
+      website?: string;
+      github?: string;
+      labelEs?: string;
+      labelEn?: string;
+    };
   };
 
   let typewriterTimeout: number | undefined;
@@ -469,6 +513,13 @@ const firstMember = teamPayload[0];
     typeNextCharacter(1);
   };
 
+  const getSocialHref = (member: TeamViewModel) => member.links?.instagram || member.links?.website || member.links?.github || "";
+
+  const getSocialLabel = (member: TeamViewModel) => {
+    const label = locale === "en" ? member.links?.labelEn : member.links?.labelEs;
+    return label?.trim() || (locale === "en" ? "View social profile" : "Ver red social");
+  };
+
   const updateMemberInfo = (index: number, animateName = true) => {
     const member = (teamMembers as TeamViewModel[])[index];
     if (!member) return;
@@ -493,6 +544,15 @@ const firstMember = teamPayload[0];
           return item;
         }),
       );
+    }
+
+    const socialHref = getSocialHref(member);
+    if (socialActionElement) socialActionElement.hidden = !socialHref;
+    if (socialLinkElement && socialHref) {
+      const socialLabel = getSocialLabel(member);
+      socialLinkElement.href = socialHref;
+      socialLinkElement.setAttribute("aria-label", socialLabel);
+      if (socialTooltipElement) socialTooltipElement.textContent = socialLabel;
     }
   };
 

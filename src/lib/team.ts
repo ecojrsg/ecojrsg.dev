@@ -7,6 +7,8 @@ export type TeamMember = {
     instagram?: string;
     website?: string;
     github?: string;
+    labelEs?: string;
+    labelEn?: string;
   };
   es: {
     name: string;
@@ -27,8 +29,9 @@ export const teamMembers: TeamMember[] = [
     id: "eco",
     icon: "eco",
     links: {
-      website: "",
-      github: "",
+      instagram: "https://instagram.com/katzekingdom",
+      labelEs: "Instagram de Katze",
+      labelEn: "Instagram of Katze",
     },
     es: {
       name: "Jonathan Serna",
@@ -49,7 +52,9 @@ export const teamMembers: TeamMember[] = [
     id: "yari",
     icon: "yari",
     links: {
-      instagram: "",
+      instagram: "https://instagram.com/_yariortiz_",
+      labelEs: "Instagram",
+      labelEn: "Instagram",
     },
     es: {
       name: "Yari Ortiz",
@@ -70,7 +75,9 @@ export const teamMembers: TeamMember[] = [
     id: "emilio",
     icon: "emilio",
     links: {
-      instagram: "",
+      instagram: "https://instagram.com/emiliosotomayor__",
+      labelEs: "Instagram",
+      labelEn: "Instagram",
     },
     es: {
       name: "Emilio Sotomayor",
@@ -91,7 +98,9 @@ export const teamMembers: TeamMember[] = [
     id: "sebas",
     icon: "sebas",
     links: {
-      instagram: "",
+      instagram: "https://instagram.com/basstian.fit",
+      labelEs: "Instagram",
+      labelEn: "Instagram",
     },
     es: {
       name: "Sebas Estrada",
