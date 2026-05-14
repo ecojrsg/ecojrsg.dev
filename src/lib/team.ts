@@ -38,14 +38,14 @@ export const teamMembers: TeamMember[] = [
       role: "Ingeniero de Software",
       description:
         "Asesor tecnologico y desarrollador enfocado en soluciones escalables, infraestructura, automatizacion y sistemas ERP.",
-      highlights: ["Odoo", "DevOps", "Infraestructura"],
+      highlights: ["Odoo", "DevOps", "Desarrollo"],
     },
     en: {
       name: "Jonathan Serna",
       role: "Software Engineer",
       description:
         "Technology consultant and developer focused on scalable solutions, infrastructure, automation, and ERP systems.",
-      highlights: ["Odoo", "DevOps", "Infrastructure"],
+      highlights: ["Odoo", "DevOps", "Development"],
     },
   },
   {
@@ -60,15 +60,15 @@ export const teamMembers: TeamMember[] = [
       name: "Yari Ortiz",
       role: "Editor de video",
       description:
-        "Colaborador recomendado para produccion audiovisual, organizacion de flujos de edicion y contenido visual.",
-      highlights: ["Edicion", "Produccion", "Gestion creativa"],
+        "Colaborador especializado en edición ágil de video y creación de contenido visual para redes, enfocado en producción rápida, creativa y de alto volumen.",
+      highlights: ["Edicion", "Agilidad", "Viralidad"],
     },
     en: {
       name: "Yari",
       role: "Video Editor",
       description:
-        "Recommended collaborator for audiovisual production, editing workflows, and visual content.",
-      highlights: ["Editing", "Production", "Creative management"],
+        "Collaborator specialized in agile video editing and visual content creation for social media, focused on fast, creative, and high-volume production.",
+      highlights: ["Editing", "Agility", "Viral"],
     },
   },
   {
@@ -81,17 +81,17 @@ export const teamMembers: TeamMember[] = [
     },
     es: {
       name: "Emilio Sotomayor",
-      role: "Creador audiovisual",
+      role: "Editor de video",
       description:
-        "Perfil creativo orientado a edicion, contenido digital y apoyo visual para proyectos con identidad propia.",
-      highlights: ["Video", "Contenido", "Narrativa visual"],
+        "Perfil creativo especializado en edición audiovisual y storytelling, enfocado en crear contenido digital de alta calidad con impacto visual y narrativo.",
+      highlights: ["Edición", "Narrativa", "Impacto"],
     },
     en: {
       name: "Emilio Sotomayor",
-      role: "Visual Creator",
+      role: "Video Editor",
       description:
-        "Creative profile focused on editing, digital content, and visual support for projects with a clear identity.",
-      highlights: ["Video", "Content", "Visual storytelling"],
+        "Creative profile specialized in audiovisual editing and storytelling, focused on creating high-quality digital content with visual and narrative impact.",
+      highlights: ["Editing", "Narrative", "Impact"],
     },
   },
   {
@@ -104,16 +104,16 @@ export const teamMembers: TeamMember[] = [
     },
     es: {
       name: "Sebas Estrada",
-      role: "Colaborador creativo",
+      role: "Diseño sonoro",
       description:
-        "Apoyo recomendado para proyectos visuales, ideas creativas y colaboraciones digitales.",
-      highlights: ["Creatividad", "Apoyo visual", "Colaboracion"],
+        "Especialista en crear ambientes, efectos y experiencias sonoras que dan identidad y emoción a una producción audiovisual.",
+      highlights: ["Inmersión", "Edición", "Creatividad"],
     },
     en: {
       name: "Sebas Estrada",
       role: "Creative Collaborator",
       description:
-        "Recommended support for visual projects, creative ideas, and digital collaborations.",
+        "Specialist in creating soundscapes, effects, and sonic experiences that give identity and emotion to an audiovisual production.",
       highlights: ["Creativity", "Visual support", "Collaboration"],
     },
   },
