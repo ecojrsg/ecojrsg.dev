@@ -435,7 +435,7 @@ const firstMemberSocialHref = getMemberSocialHref(firstMember.links);
     .team-cards-swiper {
       width: min(74vw, 17rem);
       height: min(84vw, 21.5rem);
-      overflow: hidden;
+      overflow: visible;
     }
 
     .team-card {
@@ -583,7 +583,7 @@ const firstMemberSocialHref = getMemberSocialHref(firstMember.links);
       enabled: true,
     },
     cardsEffect: {
-      perSlideOffset: 18,
+      perSlideOffset: window.matchMedia("(max-width: 640px)").matches ? 14 : 18,
       perSlideRotate: 1.5,
       rotate: true,
       slideShadows: false,

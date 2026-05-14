@@ -153,7 +153,7 @@ const i18n = getI18N({ currentLocale });
   </div>
 
   <!-- Mobile Layout | Diseño móvil -->
-  <div class="flex flex-col gap-4 lg:hidden inAnimateL opacity-0">
+  <div class="about-mobile-layout flex flex-col gap-4 lg:hidden inAnimateL opacity-0">
     <Glass class="terminal-container terminal-mobile">
       <!-- Terminal Header -->
       <div class="terminal-header">
@@ -165,41 +165,21 @@ const i18n = getI18N({ currentLocale });
         <div class="terminal-title">about.tsx</div>
       </div>
 
-      <!-- Terminal Body -->
-      <div class="terminal-body">
-        <!-- Line 1: Comment -->
-        <div class="code-line">
+      <div class="terminal-body terminal-mobile-body">
+        <div class="mobile-terminal-kicker">
           <span class="line-number">1</span>
           <span class="comment">// {i18n.About_Hero.comment_greeting}</span>
         </div>
 
-        <!-- Line 2: Greeting -->
-        <div class="code-line">
-          <span class="line-number">2</span>
+        <div class="mobile-greeting-line">
           <span class="keyword">const</span>
           <span class="variable">greeting</span>
           <span class="operator">=</span>
-          <span class="string"
-            >"<span id="typeR"></span><span class="terminal-cursor"
-            ></span>"</span
-          >
+          <span class="string">"<span id="typeR"></span><span class="terminal-cursor"></span>"</span>
         </div>
 
-        <!-- Line 3: Empty -->
-        <div class="code-line code-line-empty">
-          <span class="line-number">3</span>
-        </div>
-
-        <!-- Line 4: Comment -->
-        <div class="code-line">
-          <span class="line-number">4</span>
-          <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span
-          >
-        </div>
-
-        <!-- Line 5: Title -->
-        <div class="code-line code-line-title">
-          <span class="line-number">5</span>
+        <article class="mobile-about-card">
+          <span class="comment-block">/* {i18n.About_Hero.comment_role} */</span>
           <h2 class="title-text">
             {
               i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[0]
@@ -207,60 +187,30 @@ const i18n = getI18N({ currentLocale });
               >{`{${i18n.About_Hero.title_highlight}}`}</span
             >{i18n.About_Hero.title.split(i18n.About_Hero.title_highlight)[1]}
           </h2>
-        </div>
-
-        <!-- Line 6: Empty -->
-        <div class="code-line code-line-empty">
-          <span class="line-number">6</span>
-        </div>
-
-        <!-- Line 7: Comment -->
-        <div class="code-line">
-          <span class="line-number">7</span>
-          <span class="comment">// {i18n.About_Hero.comment_interests}</span>
-        </div>
-
-        <!-- Line 8: Description -->
-        <div class="code-line code-line-description">
-          <span class="line-number">8</span>
           <p class="description-text">
             {i18n.About_Hero.description}
           </p>
-        </div>
+        </article>
 
-        <!-- Line 9: Empty -->
-        <div class="code-line code-line-empty">
-          <span class="line-number">9</span>
-        </div>
-
-        <!-- Line 10: Icon buttons -->
-        <!-- <div class="code-line">
-          <span class="line-number">10</span>
-          <div class="icon-buttons-grid">
-            <div class="tooltip-wrapper">
+        <div class="mobile-partner-card">
+          <p class="comment">// {i18n.About_Hero.odoo}</p>
+          <div class="mobile-partner-actions">
+            <Link href="https://www.odoo.com?utm_campaign=partner-c63cf07f&utm_source=partner_ref">
               <Button variant="icon" class="terminal-icon-btn">
-                <AI class="w-10 h-10" />
+                <img src="logos/odoo.png" alt="Odoo" style="width: 30px;">
               </Button>
-              <span class="tooltip">{i18n.About_Hero.interests_labels.ai}</span>
-            </div>
-            <div class="tooltip-wrapper">
+            </Link>
+            <Link href="https://katzekingdom.com">
               <Button variant="icon" class="terminal-icon-btn">
-                <CPU class="w-10 h-10" />
+                <Logo class="w-[27px]" />
               </Button>
-              <span class="tooltip"
-                >{i18n.About_Hero.interests_labels.hardware}</span
-              >
-            </div>
-            <div class="tooltip-wrapper">
-              <Button variant="icon" class="terminal-icon-btn">
-                <Keyboard class="w-10 h-10" />
-              </Button>
-              <span class="tooltip"
-                >{i18n.About_Hero.interests_labels.keyboards}</span
-              >
-            </div>
+            </Link>
           </div>
-        </div> -->
+          <div class="mobile-partner-labels">
+            <span>{i18n.About_Hero.interests_labels.odoo}</span>
+            <span>{i18n.About_Hero.interests_labels.katze}</span>
+          </div>
+        </div>
       </div>
     </Glass>
 
@@ -703,7 +653,71 @@ const i18n = getI18N({ currentLocale });
 
   /* Mobile Adjustments | Ajustes para móvil */
   .terminal-mobile .terminal-body {
-    padding: 1rem 0;
+    padding: 1rem;
+  }
+
+  .terminal-mobile-body {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .mobile-terminal-kicker,
+  .mobile-greeting-line {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .mobile-terminal-kicker {
+    gap: 0.75rem;
+    padding: 0.15rem 0.1rem 0;
+    font-size: 0.74rem;
+  }
+
+  .mobile-greeting-line {
+    flex-wrap: wrap;
+    gap: 0.2rem 0.35rem;
+    border-radius: 0.9rem;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .mobile-about-card,
+  .mobile-partner-card {
+    display: grid;
+    gap: 0.85rem;
+    border-radius: 1.15rem;
+    padding: clamp(1rem, 1vw, .4rem);
+  }
+
+  .mobile-partner-card {
+    gap: 0.75rem;
+  }
+
+  .mobile-partner-card .comment {
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .mobile-partner-actions,
+  .mobile-partner-labels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    align-items: center;
+  }
+
+  .mobile-partner-actions :global(a) {
+    display: grid;
+    justify-items: center;
+  }
+
+  .mobile-partner-labels {
+    color: rgba(222, 210, 232, 0.72);
+    font-family: "Satoshi", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
   }
 
   .terminal-mobile .code-line {
@@ -717,12 +731,15 @@ const i18n = getI18N({ currentLocale });
     font-size: 0.75rem;
   }
 
-  .terminal-mobile .title-text {
-    font-size: 1.75rem;
+  .terminal-mobile-body .title-text {
+    font-size: clamp(1.45rem, 6.4vw, 1.85rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
   }
 
-  .terminal-mobile .description-text {
-    font-size: 0.9375rem;
+  .terminal-mobile-body .description-text {
+    font-size: clamp(0.88rem, 3.4vw, 0.96rem);
+    line-height: 1.62;
   }
 
   .terminal-mobile .icon-buttons-grid {
@@ -737,17 +754,27 @@ const i18n = getI18N({ currentLocale });
     display: none;
   }
 
-  .terminal-mobile + .about-actions {
+  .about-mobile-layout .about-actions {
     display: grid;
-    justify-items: end;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
   }
 
-  .terminal-mobile + .about-actions > a:first-child {
+  .about-mobile-layout .about-actions > a:first-child {
     width: 100%;
+    min-width: 0;
   }
 
-  .terminal-mobile + .about-actions :global(.blog-link-button) {
+  .about-mobile-layout .about-actions :global(.blog-link-button) {
     margin-left: 0;
+    align-self: center;
+  }
+
+  .about-mobile-layout .cv-terminal-button,
+  .about-mobile-layout .cv-terminal-button :global(.glass-panel) {
+    width: 100%;
   }
 
   /* Responsive Typography | Tipografía responsive */

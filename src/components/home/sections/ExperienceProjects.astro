@@ -22,7 +22,7 @@ const projects = experienceProjects.map((project) => ({
       <p class="text-center">{i18n.ExperienceProjects.description}</p>
     </div>
   </div>
-  <p class="experience-projects__eyebrow">{i18n.ExperienceProjects.eyebrow}</p>
+  <p class="experience-projects__eyebrow inAnimateB">{i18n.ExperienceProjects.eyebrow}</p>
 
   <div class="experience-projects__rail inAnimateB">
     <div class="swiper experience-projects-swiper" aria-label={i18n.ExperienceProjects.slider_label}>
@@ -332,12 +332,13 @@ const projects = experienceProjects.map((project) => ({
   @media (max-width: 800px) {
     .experience-projects__rail {
       mask-image: none;
-      padding-block: 0.25rem 0.75rem;
+      padding-block: 0.85rem 0.75rem;
       overflow: clip;
     }
 
     .experience-projects-swiper {
       overflow: clip;
+      padding-top: 0.75rem;
     }
 
     .experience-projects :global(.swiper-wrapper) {
