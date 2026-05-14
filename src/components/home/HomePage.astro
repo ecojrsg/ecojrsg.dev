@@ -8,6 +8,7 @@ import Logo from "@/components/Logo.astro";
 import About from "@/components/home/sections/About.astro";
 import Technology from "@/components/home/sections/Technology.astro";
 import Experience from "@/components/home/sections/Experience.astro";
+import ExperienceProjects from "@/components/home/sections/ExperienceProjects.astro";
 import Team from "@/components/home/sections/Team.astro"
 ---
 
@@ -85,6 +86,11 @@ import Team from "@/components/home/sections/Team.astro"
       <div class="max-w-[1200px] mx-auto">
         <Experience />
       </div>
+      <div class="experience-projects-home-wrap">
+        <div class="experience-projects-home-inner">
+          <ExperienceProjects />
+        </div>
+      </div>
       <div id="Team" class="w-full max-w-[1200px] mx-auto">
         <Team />
       </div>
@@ -97,6 +103,21 @@ import Team from "@/components/home/sections/Team.astro"
     opacity: 0;
     pointer-events: none;
     transition-duration: 0.3s;
+  }
+
+  .experience-projects-home-wrap {
+    width: 100vw;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
+  }
+
+  .experience-projects-home-inner {
+    width: min(1500px, calc(100vw - 2rem));
+    max-width: none;
   }
 </style>
 

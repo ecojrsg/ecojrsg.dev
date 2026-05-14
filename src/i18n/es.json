@@ -70,6 +70,14 @@
     "paragraph2": "Actualmente me dedico principalmente a asesorar empresas de manera transparente y directa, ayudándolas a tomar decisiones tecnológicas prácticas y sostenibles según sus necesidades reales. Gracias a mi experiencia en distintas áreas de la tecnología —desde desarrollo frontend y backend hasta DevOps, infraestructura e implementación de sistemas ERP— he desarrollado una visión técnica y operativa que me permite comprender tanto la parte tecnológica como los desafíos reales dentro de las empresas."
   },
 
+  "ExperienceProjects": {
+    "title": "Mas de mi experiencia",
+    "eyebrow": "casos y proyectos",
+    "description": "Una seleccion editable de experiencias, casos o proyectos que puedes conectar con paginas externas independientes.",
+    "slider_label": "Carrusel de experiencias destacadas",
+    "drag_hint": "Arrastra las tarjetas para explorar mas experiencias"
+  },
+
   "Team": {
     "title": "Mi equipo",
     "eyebrow": "personas recomendadas",

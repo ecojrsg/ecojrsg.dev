@@ -70,6 +70,14 @@
     "paragraph2": "Currently, I am primarily dedicated to advising companies in a transparent and direct manner, helping them make practical and sustainable technological decisions according to their real needs. Thanks to my experience in different areas of technology —from frontend and backend development to DevOps, infrastructure, and ERP system implementation— I have developed a technical and operational vision that allows me to understand both the technological part and the real challenges within companies."
   },
 
+  "ExperienceProjects": {
+    "title": "More of my experience",
+    "eyebrow": "cases and projects",
+    "description": "An editable selection of experiences, cases, or projects that you can connect to independent external pages.",
+    "slider_label": "Featured experiences carousel",
+    "drag_hint": "Drag the cards to explore more experiences"
+  },
+
   "Team": {
     "title": "My team",
     "eyebrow": "recommended people",
