@@ -47,6 +47,10 @@ export const ui = {
 } as const;
 
 export const routes = {
-  es: {},
-  en: {},
+  es: {
+    blog: "blog",
+  },
+  en: {
+    blog: "blog",
+  },
 };

@@ -1,0 +1,148 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Glass from "@/components/Glass.astro";
+import Link from "@/components/Link.astro";
+import PatternBG from "@/components/PatternBG.astro";
+import { getI18N } from "@/i18n/index";
+import { formatBlogDate, getBlogSlug, getPublishedBlogPosts } from "@/lib/blog";
+
+const lang = "en";
+const i18n = getI18N({ currentLocale: lang });
+const posts = await getPublishedBlogPosts(lang);
+---
+
+<Layout title="Eco Blog" description="Blog">
+  <PatternBG>
+    <main class="blog-shell px-4 py-16 sm:px-6 lg:px-10">
+      <section class="mx-auto w-full max-w-5xl">
+        <p class="eyebrow">{i18n.Blog.eyebrow}</p>
+        <h1>{i18n.Blog.title}</h1>
+        <p class="intro">{i18n.Blog.description}</p>
+
+        <div class="post-grid">
+          {posts.length === 0 && <p class="empty">{i18n.Blog.empty}</p>}
+          {posts.map((post) => (
+            <Link href={`/en/blog/${getBlogSlug(post)}`} class="post-link">
+              <Glass class="post-card h-full p-6" hover={true} glow={true} pixelEffect={true}>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatBlogDate(post.data.pubDate, lang)}
+                </time>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.description}</p>
+                <div class="tags">
+                  {post.data.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <strong>{i18n.Blog.read_more}</strong>
+              </Glass>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
+  </PatternBG>
+</Layout>
+
+<style>
+  .blog-shell {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .eyebrow {
+    font-family: "satoshi", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ad8fc5;
+  }
+
+  h1 {
+    margin-top: 0.75rem;
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.07em;
+  }
+
+  .intro {
+    max-width: 680px;
+    margin-top: 1.25rem;
+    font-family: "satoshi", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .post-link {
+    display: block;
+  }
+
+  .post-card {
+    display: flex;
+    min-height: 280px;
+    flex-direction: column;
+    transition: transform 180ms ease, border-color 180ms ease;
+  }
+
+  .post-link:hover .post-card {
+    transform: translateY(-4px);
+  }
+
+  time {
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    font-size: 0.8rem;
+    color: #ad8fc5;
+  }
+
+  h2 {
+    margin-top: 1.2rem;
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .post-card p {
+    margin-top: 1rem;
+    font-family: "satoshi", sans-serif;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+  }
+
+  .tags span {
+    border: 1px solid rgba(173, 143, 197, 0.3);
+    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
+    font-family: "satoshi", sans-serif;
+    font-size: 0.75rem;
+    color: #d2c1df;
+  }
+
+  strong {
+    margin-top: 1.5rem;
+    font-family: "satoshi", sans-serif;
+    color: white;
+  }
+
+  .empty {
+    font-family: "satoshi", sans-serif;
+    color: rgba(255, 255, 255, 0.68);
+  }
+</style>

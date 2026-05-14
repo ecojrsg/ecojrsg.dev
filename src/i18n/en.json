@@ -14,9 +14,15 @@
 
   "About_Card": {
     "title": "About me",
-    "intro": "I am a passionate Software Engineering student, with extensive experience in various roles within development projects. My main skills include mastery of languages such as:",
-    "more": "But my interest is not limited to just software development. I am also a computer hardware enthusiast. From creating and maintaining servers to assembling custom PCs and keyboards.",
-    "btnMore": "More about me"
+    "intro": "Technology Consultant and Official Odoo Partner, specialized in ERP implementation, process automation, and infrastructure solutions for businesses.",
+    "more": "I combine experience in software development, DevOps, and systems integration to help companies adopt technology in a practical, scalable, and results-oriented way.",
+    "btnMore": "More about me",
+    "lts_1": "Consulting",
+    "lts_2": "Development",
+    "lts_3": "Odoo",
+    "lts_4": "Infrastructure",
+    "lts_5": "DevOps",
+    "lts_6": "Integrations"
   },
 
   "Lets_Work_Card": {
@@ -46,23 +52,84 @@
 
   "Now_Card": {
     "title": "Now",
-    "employment": "Back-end developer"
+    "employment": "Technology Consultant | DevOps"
+  },
+
+  "Technology": {
+    "title": "Technological Stack",
+    "description": "With knowledge across many languages and technologies. I invite you to explore them all on my",
+    "contact": "or contact me to learn everything I am capable of 👍"
+  },
+
+  "Experience": {
+    "title": "My experience",
+    "countries": "Countries",
+    "projects": "Projects",
+    "clients": "Clients",
+    "paragraph1": "Throughout my career, I have participated in projects focused on automation, infrastructure, ERP, and software development, collaborating with companies and teams in various technological environments. This experience has allowed me to understand both the technical side and the real operational needs behind each implementation.",
+    "paragraph2": "Currently, I am primarily dedicated to advising companies in a transparent and direct manner, helping them make practical and sustainable technological decisions according to their real needs. Thanks to my experience in different areas of technology —from frontend and backend development to DevOps, infrastructure, and ERP system implementation— I have developed a technical and operational vision that allows me to understand both the technological part and the real challenges within companies."
+  },
+
+  "ExperienceProjects": {
+    "title": "More of my experience",
+    "eyebrow": "cases and projects",
+    "description": "An editable selection of experiences, cases, or projects that you can connect to independent external pages.",
+    "slider_label": "Featured experiences carousel",
+    "drag_hint": "Drag the cards to explore more experiences"
+  },
+
+  "Team": {
+    "title": "My team",
+    "eyebrow": "recommended people",
+    "description": "Trusted collaborators and profiles I work with or recommend for the quality of their work.",
+    "slider_label": "Draggable team member cards",
+    "drag_hint": "Drag the cards to switch team member",
+    "active_label": "active member"
+  },
+
+  "Contact": {
+    "title": "Let's work together through Katze",
+    "eyebrow": "contact",
+    "description": "For projects, implementations, or technology consulting, contact is handled through my company Katze. There you can learn more about the services and start a direct conversation.",
+    "cta": "Go to Katze"
+  },
+
+  "Not_Found": {
+    "eyebrow": "error / route not found",
+    "title": "This route was lost in the system",
+    "description": "The resource you are trying to open does not exist, was moved, or is still under construction. You can return home and keep exploring from a safe route.",
+    "terminal_status": "scan: route_not_found",
+    "terminal_origin": "origin: ecojrsg.dev",
+    "terminal_action": "action: redirect_available",
+    "home": "Back home",
+    "github": "View GitHub",
+    "hint": "If you arrived from an external link, it probably points to an older version of the site."
+  },
+
+  "Blog": {
+    "eyebrow": "logbook / technical notes",
+    "title": "Blog",
+    "description": "Ideas, lessons, and notes about development, software, and technology.",
+    "empty": "There are no published posts yet.",
+    "read_more": "Read post",
+    "back": "Back to blog",
+    "published": "Published"
   },
 
   "About_Hero": {
     "comment_greeting": "Initial greetings",
     "greeting_text": "I'm Eco",
     "comment_role": "Main professional role",
-    "title": "Software Engineer with experience in Web development",
+    "title": "Software Engineer specialized in scalable solutions.",
     "title_highlight": "Software",
     "comment_interests": "Additional areas of expertise",
-    "description": "In addition to having experience in computer science areas such as AI, Hardware, Editing and as a secret Keyboards, I really like keyboards",
-    "cv_button": "download --cv",
+    "description": "In addition to working in software development and infrastructure, I currently collaborate with companies and projects as an Official Odoo Partner, helping to implement ERP solutions, automation, and scalable technologies focused on optimizing processes and generating real value through modern and open-source tools.",
+    "cv_button": "Download --cv",
     "cv_alt": "Download my CV",
+    "odoo": "// Meet Odoo, I'm an Official Odoo Partner with my company Katze",
     "interests_labels": {
-      "ai": "Artificial Intelligence",
-      "hardware": "Hardware & Servers",
-      "keyboards": "Mechanical Keyboards"
+      "odoo": "Meet Odoo",
+      "katze": "My company Katze"
     }
   },
 

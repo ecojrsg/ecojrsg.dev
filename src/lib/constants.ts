@@ -4,8 +4,10 @@ export const Des: { [key: string]: string } = {
 
 export const LINKS = {
   github: "https://github.com/ecojrsg",
-  instagram: "https://www.instagram.com/eco_jrsg/",
+  instagram: "https://www.instagram.com/katzekingdom/",
   discord: "https://discord.gg/zGph7wce6z",
+  linkedin: "https://www.linkedin.com/in/jrsg/",
+  katze: "https://katzekingdom.com"
 };
 
 export const loaderAnimation = [

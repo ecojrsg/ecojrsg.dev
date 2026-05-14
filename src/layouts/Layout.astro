@@ -89,9 +89,16 @@ const { currentLocale } = Astro
     scroll-padding-top: 100px;
     scroll-behavior: smooth;
     color: white;
+    overflow-x: clip;
   }
   body {
     position: relative;
+    overflow-x: clip;
+  }
+  @media (max-width: 640px) {
+    html {
+      font-size: 15px;
+    }
   }
   @media (min-width: 768px) {
     body {

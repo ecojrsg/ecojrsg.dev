@@ -1,0 +1,148 @@
+---
+import { getI18N } from "@/i18n/index";
+import { LINKS } from "@/lib/constants";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<section class="contact-section font-satoshi inAnimateB" aria-labelledby="contact-title">
+  <div class="contact-section__shell">
+    <div class="contact-section__content">
+      <p class="contact-section__eyebrow">{i18n.Contact.eyebrow}</p>
+      <h2 id="contact-title">{i18n.Contact.title}</h2>
+      <p>{i18n.Contact.description}</p>
+    </div>
+
+    <a class="contact-section__cta" href={LINKS.katze} target="_blank" rel="noopener noreferrer">
+      <span>{i18n.Contact.cta}</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    width: 100%;
+  }
+
+  .contact-section__shell {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    overflow: hidden;
+    border: 1px solid rgba(148, 111, 179, 0.28);
+    border-radius: clamp(1.25rem, 3vw, 2rem);
+    padding: clamp(1.35rem, 4vw, 2.5rem);
+    background:
+      radial-gradient(circle at 8% 0%, rgba(148, 111, 179, 0.2), transparent 34%),
+      radial-gradient(circle at 96% 82%, rgba(84, 33, 135, 0.2), transparent 34%),
+      linear-gradient(145deg, rgba(31, 15, 45, 0.72), rgba(15, 17, 21, 0.62));
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(222, 210, 232, 0.08);
+  }
+
+  .contact-section__shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(rgba(222, 210, 232, 0.05) 1px, transparent 1px);
+    background-size: 100% 0.75rem;
+    mask-image: linear-gradient(to right, black, transparent 72%);
+  }
+
+  .contact-section__content {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 46rem;
+  }
+
+  .contact-section__eyebrow {
+    width: fit-content;
+    margin: 0;
+    border: 1px solid rgba(148, 111, 179, 0.28);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    background: rgba(31, 15, 45, 0.32);
+    color: rgba(222, 210, 232, 0.76);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-section h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.1rem, 5vw, 4.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+
+  .contact-section__content p:last-child {
+    max-width: 38rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.72;
+  }
+
+  .contact-section__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-width: 13rem;
+    border: 1px solid rgba(148, 111, 179, 0.38);
+    border-radius: 999px;
+    padding: 0.9rem 1.25rem;
+    background: rgba(84, 33, 135, 0.22);
+    color: #ded2e8;
+    text-decoration: none;
+    font-weight: 900;
+    box-shadow: 0 10px 30px rgba(15, 17, 21, 0.28);
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      background 0.25s ease,
+      color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .contact-section__cta:hover,
+  .contact-section__cta:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(148, 111, 179, 0.62);
+    background: rgba(84, 33, 135, 0.34);
+    color: #ffffff;
+    box-shadow:
+      0 0 22px rgba(148, 111, 179, 0.18),
+      0 12px 34px rgba(15, 17, 21, 0.32);
+  }
+
+  @media (max-width: 767px) {
+    .contact-section__shell {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+      gap: 1.35rem;
+    }
+
+    .contact-section__content {
+      justify-items: center;
+    }
+
+    .contact-section h2 {
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
+
+    .contact-section__cta {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+</style>

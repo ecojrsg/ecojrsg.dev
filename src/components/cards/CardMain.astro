@@ -11,6 +11,7 @@ import Link from "@/components/Link.astro";
 
 import { LINKS } from "@/lib/constants";
 import { getI18N } from "@/i18n/index";
+import Linkedin from "../icons/Linkedin.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -48,9 +49,14 @@ const i18n = getI18N({ currentLocale });
                 <Instagram />
             </Button>
         </Link>
-        <Link href={LINKS.discord} blank={true}>
+        <!-- <Link href={LINKS.discord} blank={true}>
             <Button>
                 <Discord />
+            </Button>
+        </Link> -->
+        <Link href={LINKS.linkedin} blank={true}>
+            <Button>
+                <Linkedin />
             </Button>
         </Link>
         <div class="hidden md:block">

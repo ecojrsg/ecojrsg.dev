@@ -1,6 +1,11 @@
 ---
 import GlobeComponent from "@/components/interactive/Globe";
 import Glass from "@/components/Glass.astro";
+import { getI18N } from "@/i18n/index";
+import BlogLinkButton from "@/components/BlogLinkButton.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 <script>
     import {animate, inView} from "motion"
@@ -24,7 +29,7 @@ import Glass from "@/components/Glass.astro";
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 5),
+                (progress) => target.innerHTML = Math.round(progress * 30) + "+",
                 { duration: 1, easing: "ease-out" }
             )
         }, 2500)
@@ -35,7 +40,7 @@ import Glass from "@/components/Glass.astro";
         setTimeout(() => {
             animate(
                 // @ts-ignore
-                (progress) => target.innerHTML = Math.round(progress * 113),
+                (progress) => target.innerHTML = Math.round(progress * 100) + "+",
                 { duration: 2, easing: "ease-out" }
             )
         }, 3000)
@@ -48,26 +53,26 @@ import Glass from "@/components/Glass.astro";
             <GlobeComponent client:load/>
         </div>
         <div class="flex flex-col text-center justify-around lg:h-[500px] inAnimateR opacity-0">
-            <h1 class="text-5xl">Mi experiencia</h1>
+            <h1 class="text-5xl pb-2">{i18n.Experience.title}</h1>
             <div class="flex justify-center gap-8">
                 <div class="w-28 pt-6 lg:pt-0">
                     <Glass class="p-3 text-3xl paises">0</Glass>
-                    <p>Paises</p>
+                    <p>{i18n.Experience.countries}</p>
                 </div>
                 <div class="w-28 pt-6 lg:pt-0">
                     <Glass class="p-3 text-3xl universidades">0</Glass>
-                    <p>Universidades</p>
+                    <p>{i18n.Experience.projects}</p>
                 </div>
                 <div class="w-28 pt-6 pb-6 lg:p-0">
                     <Glass class="p-3 text-3xl clientes">0</Glass>
-                    <p>Clientes</p>
+                    <p>{i18n.Experience.clients}</p>
                 </div>
             </div>
             <div>
-                A lo largo de mi trayectoria profesional, he tenido la oportunidad de explorar diversas culturas y sistemas educativos en varios países, lo que ha enriquecido profundamente mi perspectiva. Mi formación incluye estudios en la Universidad de Sevilla en España y en el Deggendorf Institute of Technology en Alemania, donde cursé asignaturas avanzadas en áreas como algoritmos de inteligencia artificial y diseño de interfaces de usuario responsivas y accesibles.
+                {i18n.Experience.paragraph1}
                 <br>
                 <br>
-                Este valioso conocimiento me ha permitido desarrollar proyectos innovadores y formular soluciones efectivas para los desafíos que enfrento tanto en mi entorno laboral como en mis iniciativas personales. Estoy comprometido con la mejora continua y la aplicación de mis habilidades para generar un impacto positivo en cada tarea que realizo. 
+                {i18n.Experience.paragraph2}
             </div>
         </div>
     </div>
