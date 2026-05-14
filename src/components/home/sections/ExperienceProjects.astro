@@ -36,14 +36,14 @@ const projects = experienceProjects.map((project) => ({
                 </span>
 
                 <div class="experience-project-card__body">
-                  <div>
+                  <div class="experience-project-card__content">
                     <span class="experience-project-card__index">{project.id}</span>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
                   </div>
 
                   <span class="experience-project-card__link" aria-hidden="true">
-                    <span>{project.linkLabel || (locale === "en" ? "View experience" : "Ver experiencia")}</span>
+                    <span class="experience-project-card__tooltip">{project.linkLabel || (locale === "en" ? "View experience" : "Ver experiencia")}</span>
                     <span class="experience-project-card__link-icon">↗</span>
                   </span>
                 </div>
@@ -121,7 +121,7 @@ const projects = experienceProjects.map((project) => ({
     max-width: 100%;
     overflow: clip;
     contain: layout paint inline-size;
-    padding-block: 0.5rem 1rem;
+    padding-block: 1rem 1rem;
     mask-image: linear-gradient(
       to right,
       transparent 0%,
@@ -137,6 +137,7 @@ const projects = experienceProjects.map((project) => ({
     max-width: 100%;
     overflow: hidden;
     contain: layout paint inline-size;
+    padding-top: 0.5rem;
   }
 
   .experience-projects :global(.swiper-wrapper) {
@@ -212,15 +213,28 @@ const projects = experienceProjects.map((project) => ({
 
   .experience-project-card__body {
     flex: 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    align-items: stretch;
     gap: 1rem;
     padding: clamp(0.9rem, 2vw, 1.12rem);
   }
 
+  .experience-project-card__content {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    align-content: start;
+  }
+
   .experience-project-card__index {
-    display: inline-block;
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin-bottom: 0.55rem;
     color: rgba(161, 127, 188, 0.8);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -230,14 +244,22 @@ const projects = experienceProjects.map((project) => ({
   }
 
   .experience-project-card h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     margin: 0;
     color: #ffffff;
     font-size: clamp(1.12rem, 1.8vw, 1.45rem);
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: -0.035em;
   }
 
   .experience-project-card p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     margin: 0.58rem 0 0;
     color: rgba(255, 255, 255, 0.66);
     font-size: 0.84rem;
@@ -246,13 +268,58 @@ const projects = experienceProjects.map((project) => ({
 
   .experience-project-card__link {
     flex: 0 0 auto;
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
+    justify-self: end;
     color: #ded2e8;
     font-size: 0.78rem;
     font-weight: 800;
     white-space: nowrap;
+  }
+
+  .experience-project-card__tooltip {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 0.7rem);
+    width: max-content;
+    max-width: min(13rem, 56vw);
+    transform: translate(0.35rem, -50%) scale(0.96);
+    border: 1px solid rgba(148, 111, 179, 0.34);
+    border-radius: 0.75rem;
+    padding: 0.55rem 0.75rem;
+    background: rgba(31, 15, 45, 0.96);
+    color: #ded2e8;
+    box-shadow: 0 10px 28px rgba(15, 17, 21, 0.32);
+    font-family: "Satoshi", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+    z-index: 2;
+  }
+
+  .experience-project-card__tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    width: 9px;
+    height: 9px;
+    border-top: 1px solid rgba(148, 111, 179, 0.34);
+    border-right: 1px solid rgba(148, 111, 179, 0.34);
+    background: rgba(31, 15, 45, 0.96);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .experience-project-card:hover .experience-project-card__tooltip,
+  .experience-project-card:focus-visible .experience-project-card__tooltip {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
   }
 
   .experience-project-card__link-icon {
@@ -377,13 +444,32 @@ const projects = experienceProjects.map((project) => ({
     }
 
     .experience-project-card__body {
-      align-items: flex-start;
-      flex-direction: column;
+      gap: 0.9rem;
     }
 
     .experience-project-card__link {
-      width: 100%;
-      justify-content: space-between;
+      justify-self: end;
+    }
+
+    .experience-project-card__tooltip {
+      right: 50%;
+      top: auto;
+      bottom: calc(100% + 0.55rem);
+      transform: translate(50%, 0.35rem) scale(0.96);
+      max-width: min(13rem, 70vw);
+      text-align: center;
+    }
+
+    .experience-project-card__tooltip::after {
+      top: auto;
+      right: 50%;
+      bottom: -5px;
+      transform: translateX(50%) rotate(135deg);
+    }
+
+    .experience-project-card:hover .experience-project-card__tooltip,
+    .experience-project-card:focus-visible .experience-project-card__tooltip {
+      transform: translate(50%, 0) scale(1);
     }
 
     .experience-projects__footer {
