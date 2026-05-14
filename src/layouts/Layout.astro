@@ -95,6 +95,11 @@ const { currentLocale } = Astro
     position: relative;
     overflow-x: clip;
   }
+  @media (max-width: 640px) {
+    html {
+      font-size: 15px;
+    }
+  }
   @media (min-width: 768px) {
     body {
       zoom: 0.9;
