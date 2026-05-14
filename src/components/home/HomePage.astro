@@ -119,6 +119,17 @@ import Team from "@/components/home/sections/Team.astro"
     width: min(1500px, calc(100vw - 2rem));
     max-width: none;
   }
+
+  @media (max-width: 640px) {
+    .experience-projects-home-wrap {
+      width: 100%;
+      margin-inline: 0;
+    }
+
+    .experience-projects-home-inner {
+      width: 100%;
+    }
+  }
 </style>
 
 <script is:inline data-astro-rerun>

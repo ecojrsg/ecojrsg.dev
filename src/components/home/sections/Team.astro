@@ -425,9 +425,17 @@ const firstMemberSocialHref = getMemberSocialHref(firstMember.links);
   }
 
   @media (max-width: 640px) {
+    .team-section,
+    .team-section__content,
+    .team-section__slider {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
     .team-cards-swiper {
       width: min(74vw, 17rem);
       height: min(84vw, 21.5rem);
+      overflow: hidden;
     }
 
     .team-card {
