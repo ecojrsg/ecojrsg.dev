@@ -42,7 +42,7 @@ const { currentLocale } = Astro
 ---
 
 <!doctype html>
-<html lang={currentLocale}>
+<html lang={currentLocale || "es"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description_meta} />
