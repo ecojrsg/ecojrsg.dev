@@ -87,6 +87,13 @@
     "active_label": "integrante activo"
   },
 
+  "Contact": {
+    "title": "Trabajemos juntos desde Katze",
+    "eyebrow": "contacto",
+    "description": "Para proyectos, implementaciones o asesoría tecnológica, el contacto se gestiona desde mi empresa Katze. Ahí puedes conocer mejor los servicios y abrir una conversación directa.",
+    "cta": "Ir a Katze"
+  },
+
   "Not_Found": {
     "eyebrow": "error / ruta no encontrada",
     "title": "La ruta se perdió en el sistema",

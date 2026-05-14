@@ -87,6 +87,13 @@
     "active_label": "active member"
   },
 
+  "Contact": {
+    "title": "Let's work together through Katze",
+    "eyebrow": "contact",
+    "description": "For projects, implementations, or technology consulting, contact is handled through my company Katze. There you can learn more about the services and start a direct conversation.",
+    "cta": "Go to Katze"
+  },
+
   "Not_Found": {
     "eyebrow": "error / route not found",
     "title": "This route was lost in the system",

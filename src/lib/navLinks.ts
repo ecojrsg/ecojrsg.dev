@@ -3,7 +3,7 @@ export const navLinks = [
     { href: "/#About", i18nKey: "nav.about" },
     { href: "/#Technology", i18nKey: "nav.skills" },
     { href: "/#Team", i18nKey: "nav.team" },
-    { href: "/", i18nKey: "nav.contac" }, // Placeholder for now, will be updated
+    { href: "/#Contact", i18nKey: "nav.contac" },
     // { href: "/blog", i18nKey: "nav.blog" },
     { href: "https://blog.ecojrsg.dev", i18nKey: "nav.blog" },
     { href: "/", i18nKey: "nav.repo" }, // Placeholder for now, will be updated
