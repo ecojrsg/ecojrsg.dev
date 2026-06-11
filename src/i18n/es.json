@@ -4,7 +4,7 @@
     "paragraph": {
       "part1": "¡Hola, mundo! Soy ",
       "partB": "Jonathan Serna (Eco_Jrsg)",
-      "part2": ", ingeniero de software y entusiasta de la tecnología. Disfruto construir soluciones que combinan desarrollo, automatización e infraestructura, explorando constantemente nuevas tecnologías y herramientas open-source."
+      "part2": ", ingeniero de software especializado en DevOps y asesoría tecnológica para empresas. Diseño e implemento soluciones que integran desarrollo, automatización e infraestructura."
     }
   },
 
@@ -14,8 +14,8 @@
 
   "About_Card": {
     "title": "Sobre mi",
-    "intro": "Asesor Tecnológico y Partner Oficial de Odoo, especializado en implementación de ERP, automatización de procesos y soluciones de infraestructura para empresas.",
-    "more": "Combino experiencia en desarrollo de software, DevOps e integración de sistemas para ayudar a negocios a adoptar tecnología de forma práctica, escalable y orientada a resultados.",
+    "intro": "Asesor tecnológico y partner oficial de Odoo, especializado en implementación de ERP, automatización de procesos, infraestructura y desarrollo de soluciones empresariales.",
+    "more": "Combino experiencia en desarrollo de software, administración de servidores y optimización de procesos para ayudar a empresas a adoptar tecnología.",
     "btnMore": "Mas sobre mi",
     "lts_1": "Asesoría",
     "lts_2": "Desarrollo",

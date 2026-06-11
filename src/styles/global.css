@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Paleta de colores personalizados Eco */
+  --color-Eco-10: #050107;
+  --color-Eco-20: #1F0F2D;
+  --color-Eco-30: #341453;
+  --color-Eco-40: #451673;
+  --color-Eco-50: #542187;
+  --color-Eco-60: #613190;
+  --color-Eco-70: #6E4198;
+  --color-Eco-80: #7B50A1;
+  --color-Eco-90: #8860AA;
+  --color-Eco-100: #946FB3;
+  --color-Eco-110: #A17FBC;
+  --color-Eco-120: #AD8FC5;
+  --color-Eco-130: #B99FCD;
+  --color-Eco-140: #C6B0D6;
+  --color-Eco-150: #D2C1DF;
+  --color-Eco-160: #DED2E8;
+
+  --color-bg-100: #0f1115;
+
+  /* Sombras de diseño personalizadas */
+  --shadow-clear-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --shadow-eco-shadow: 0px 30px 15px -15px rgba(31, 15, 45, 0.5);
+  --shadow-social-btn: 3px 3px 0px 0px rgba(31, 15, 45, 1);
+
+  /* Familias Tipográficas */
+  --font-satoshi: "satoshi", "sans-serif";
+  --font-satoshi-italic: "satoshi_italic", "sans-serif";
+  --font-cabinet: "Cabinet Grotesk", "sans-serif";
+
+  /* Puntos de ruptura (breakpoints) adicionales */
+  --breakpoint-cero: 0px;
+}
