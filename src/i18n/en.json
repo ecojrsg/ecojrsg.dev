@@ -3,8 +3,8 @@
     "welcome": "Welcome",
     "paragraph": {
       "part1": "Hello, world! I'm ",
-      "partB": "Eco_Jrsg",
-      "part2": ", a passionate software engineer student and a diehard lover of computing in its entirety, from the most challenging software to the intricate secrets of hardware operation."
+      "partB": "Jonathan Serna (Eco_Jrsg)",
+      "part2": ", a software engineer specialized in DevOps and technology consulting for businesses. I design and implement solutions that integrate development, automation, and infrastructure."
     }
   },
 
@@ -15,7 +15,7 @@
   "About_Card": {
     "title": "About me",
     "intro": "Technology Consultant and Official Odoo Partner, specialized in ERP implementation, process automation, and infrastructure solutions for businesses.",
-    "more": "I combine experience in software development, DevOps, and systems integration to help companies adopt technology in a practical, scalable, and results-oriented way.",
+    "more": "I combine experience in software development, server administration, and process optimization to help companies adopt technology.",
     "btnMore": "More about me",
     "lts_1": "Consulting",
     "lts_2": "Development",
@@ -71,8 +71,8 @@
   },
 
   "ExperienceProjects": {
-    "title": "More of my experience",
-    "eyebrow": "cases and projects",
+    "title": "My projects and articles",
+    "eyebrow": "projects and articles",
     "description": "A bit more about my experience, projects, tools, and technologies I work with, so you can get to know my profile and technical capabilities better. If you want to know more, don't hesitate to contact me.",
     "slider_label": "Featured experiences carousel",
     "drag_hint": "Drag the cards to explore more experiences"
@@ -120,7 +120,7 @@
     "comment_greeting": "Initial greetings",
     "greeting_text": "I'm Eco",
     "comment_role": "Main professional role",
-    "title": "Software Engineer specialized in scalable solutions.",
+    "title": "Software Engineer specialized in DevOps and technology consulting.",
     "title_highlight": "Software",
     "comment_interests": "Additional areas of expertise",
     "description": "In addition to working in software development and infrastructure, I currently collaborate with companies and projects as an Official Odoo Partner, helping to implement ERP solutions, automation, and scalable technologies focused on optimizing processes and generating real value through modern and open-source tools.",

@@ -71,8 +71,8 @@
   },
 
   "ExperienceProjects": {
-    "title": "Mas de mi experiencia",
-    "eyebrow": "casos y proyectos",
+    "title": "Mis proyectos y artículos",
+    "eyebrow": "proyectos y artículos",
     "description": "Un poco más de mi experiencia, proyectos, herramientas y tecnologías con las que trabajo, para que conozcas mejor mi perfil y mis capacidades técnicas. Si quieres saber más, no dudes en contactarme.",
     "slider_label": "Carrusel de experiencias destacadas",
     "drag_hint": "Arrastra las tarjetas para explorar mas experiencias"
