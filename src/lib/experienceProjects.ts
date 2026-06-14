@@ -75,4 +75,34 @@ export const experienceProjects: ExperienceProject[] = [
       linkLabel: "View experience",
     },
   },
+  {
+    id: "mi-pagina-web",
+    image: "/exper/mi-pagina-web.webp",
+    href: "https://blog.ecojrsg.dev/mi-pagina-web/",
+    es: {
+      title: "Mi página web",
+      description: "Todo desarrollador necesita un punto de entrada. Conoce la historia, decisiones y desarrollo detrás de esta web.",
+      linkLabel: "Leer artículo",
+    },
+    en: {
+      title: "My personal website",
+      description: "Every developer needs an entry point. Learn about the story, decisions, and development behind this website.",
+      linkLabel: "Read article",
+    },
+  },
+  {
+    id: "mi-propio-vps",
+    image: "/exper/mi-propio-vps.webp",
+    href: "https://blog.ecojrsg.dev/mi-propio-vps-article/",
+    es: {
+      title: "Mi propio VPS",
+      description: "Aprender a programar no termina cuando una app funciona en local; el verdadero reto es el despliegue e infraestructura.",
+      linkLabel: "Leer artículo",
+    },
+    en: {
+      title: "My own VPS",
+      description: "Learning to program doesn't end when an app works locally; the real challenge is deployment and infrastructure.",
+      linkLabel: "Read article",
+    },
+  },
 ];
