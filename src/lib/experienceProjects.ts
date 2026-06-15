@@ -6,11 +6,13 @@ export type ExperienceProject = {
     title: string;
     description: string;
     linkLabel?: string;
+    tag?: string;
   };
   en: {
     title: string;
     description: string;
     linkLabel?: string;
+    tag?: string;
   };
 };
 
@@ -83,11 +85,13 @@ export const experienceProjects: ExperienceProject[] = [
       title: "Mi página web",
       description: "Todo desarrollador necesita un punto de entrada. Conoce la historia, decisiones y desarrollo detrás de esta web.",
       linkLabel: "Leer artículo",
+      tag: "Proyecto",
     },
     en: {
       title: "My personal website",
       description: "Every developer needs an entry point. Learn about the story, decisions, and development behind this website.",
       linkLabel: "Read article",
+      tag: "Project",
     },
   },
   {
@@ -98,11 +102,13 @@ export const experienceProjects: ExperienceProject[] = [
       title: "Mi propio VPS",
       description: "Aprender a programar no termina cuando una app funciona en local; el verdadero reto es el despliegue e infraestructura.",
       linkLabel: "Leer artículo",
+      tag: "Proyecto",
     },
     en: {
       title: "My own VPS",
       description: "Learning to program doesn't end when an app works locally; the real challenge is deployment and infrastructure.",
       linkLabel: "Read article",
+      tag: "Project",
     },
   },
 ];

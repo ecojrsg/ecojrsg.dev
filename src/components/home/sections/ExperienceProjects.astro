@@ -37,8 +37,13 @@ const projects = experienceProjects.map((project) => ({
 
                 <div class="experience-project-card__body">
                   <div class="experience-project-card__content">
-                    <span class="experience-project-card__index">{project.id}</span>
-                    <h3>{project.title}</h3>
+                    <div class="experience-project-card__meta">
+                      <span class="experience-project-card__index">{project.id}</span>
+                      {project.tag && (
+                        <span class="experience-project-card__tag">{project.tag}</span>
+                      )}
+                    </div>
+                    <h3 title={project.title}>{project.title}</h3>
                     <p>{project.description}</p>
                   </div>
 
@@ -228,6 +233,13 @@ const projects = experienceProjects.map((project) => ({
     align-content: start;
   }
 
+  .experience-project-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.55rem;
+  }
+
   .experience-project-card__index {
     display: block;
     min-width: 0;
@@ -235,12 +247,25 @@ const projects = experienceProjects.map((project) => ({
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0;
     color: rgba(161, 127, 188, 0.8);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.66rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  .experience-project-card__tag {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(148, 111, 179, 0.18);
+    border: 1px solid rgba(148, 111, 179, 0.32);
+    color: #ded2e8;
+    line-height: 1;
   }
 
   .experience-project-card h3 {
@@ -253,6 +278,12 @@ const projects = experienceProjects.map((project) => ({
     font-size: clamp(1.12rem, 1.8vw, 1.45rem);
     line-height: 1.05;
     letter-spacing: -0.035em;
+    transition: -webkit-line-clamp 0.25s ease;
+  }
+
+  .experience-project-card:hover h3,
+  .experience-project-card:focus-within h3 {
+    -webkit-line-clamp: unset;
   }
 
   .experience-project-card p {
