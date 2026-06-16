@@ -1,6 +1,7 @@
 services:
   web:
     build: .
+    image: ecojrsg.dev
     container_name: eco_page_app
     ports:
       - "8080:80"
